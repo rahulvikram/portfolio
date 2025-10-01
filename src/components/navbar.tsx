@@ -6,34 +6,57 @@ import { useState } from "react"
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
+  const navFields = [
+    {
+      name: "About Me",
+      href: "#about-me"
+    },
+    {
+      name: "Work",
+      href: "#my-work"
+    },
+    {
+      name: "Projects",
+      href: "#projects"
+    },
+    {
+      name: "Resume",
+      href: "#resume"
+    },
+    {
+      name: "Contact",
+      href: "#contact"
+    }
+  ]
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black border-1 border-gray-800" >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-22">
+        <div className="flex items-center justify-between h-20">
           {/* Logo/Name */}
           <Link to="/" className="flex flex-col">
             <span className="text-2xl text-white font-black text-foreground">Rahul Vikram</span>
-            <span className="text-md" style={{ color: "#A3CEF1" }}>Software Engineer</span>
+            <span className="text-md" style={{ color: "var(--palette-light-blue)" }}>Software Engineer</span>
           </Link>
+
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <Link to="#about-me">
-              <span className="text-white">About Me</span>
-            </Link>
-            <Link to="#my-work" className="font-bold">
-              Work
-            </Link>
-            <Link to="#projects" className="font-bold">
-              Projects
-            </Link>
-            <Link to="#resume" className="font-bold">
-              Resume
-            </Link>
-            <Link to="#contact" className="font-bold">
-              Contact
-            </Link>
-            
+            {navFields.map((field) => (
+              <Link
+                to={field.href}
+                key={field.name}
+                onClick={e => {
+                  e.preventDefault();
+                  const section = document.querySelector(field.href);
+                  if (section) {
+                    section.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+              >
+                <span className="text-white font-semibold hover:text-gray-300 transition-colors">{field.name}</span>
+              </Link>
+            ))}
           </div>
 
           {/* Mobile Menu Button */}

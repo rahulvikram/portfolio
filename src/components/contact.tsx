@@ -28,15 +28,6 @@ const Icons = {
       />
     </svg>
   ),
-  x: (props: IconProps) => (
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <title>X</title>
-      <path
-        fill="currentColor"
-        d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"
-      />
-    </svg>
-  ),
   github: (props: IconProps) => (
     <svg viewBox="0 0 438.549 438.549" {...props}>
       <path
@@ -49,8 +40,7 @@ const Icons = {
 
 const DATA = {
   navbar: [
-    { href: "#", icon: HomeIcon, label: "Home" },
-    { href: "#", icon: PencilIcon, label: "Blog" },
+    { href: "/", icon: HomeIcon, label: "Home (this site)" },
   ],
   contact: {
     social: {
@@ -64,13 +54,8 @@ const DATA = {
         url: "#",
         icon: Icons.linkedin,
       },
-      X: {
-        name: "X",
-        url: "#",
-        icon: Icons.x,
-      },
       email: {
-        name: "Send Email",
+        name: "Send me an Email",
         url: "#",
         icon: Icons.email,
       },
@@ -81,9 +66,7 @@ const DATA = {
 export function Contact() {
   return (
     <div id="contact" className="flex flex-col items-center justify-center">
-      <span className="pointer-events-none bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl leading-none font-semibold whitespace-pre-wrap text-transparent dark:from-white dark:to-slate-900/10">
-        Dock
-      </span>
+      <h1 className="text-4xl font-bold">Get In Touch!</h1>
       <TooltipProvider>
         <Dock direction="middle">
           {DATA.navbar.map((item) => (
@@ -97,12 +80,13 @@ export function Contact() {
                       buttonVariants({ variant: "ghost", size: "icon" }),
                       "size-12 rounded-full"
                     )}
+                    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                   >
                     <item.icon className="size-4" />
                   </Link>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>{item.label}</p>
+                  <p className="text-black">{item.label}</p>
                 </TooltipContent>
               </Tooltip>
             </DockIcon>
@@ -119,12 +103,13 @@ export function Contact() {
                       buttonVariants({ variant: "ghost", size: "icon" }),
                       "size-12 rounded-full"
                     )}
+                    target="_blank"
                   >
                     <social.icon className="size-4" />
                   </Link>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>{name}</p>
+                  <p className="text-black">{name}</p>
                 </TooltipContent>
               </Tooltip>
             </DockIcon>

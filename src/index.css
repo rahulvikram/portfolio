@@ -11,7 +11,7 @@
 
   color-scheme: light dark;
   color: white;
-  background-color: #242424;
+  background-color: #274C77;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -49,6 +49,13 @@
   --sidebar-accent-foreground: oklch(0.21 0.034 264.665);
   --sidebar-border: oklch(0.928 0.006 264.531);
   --sidebar-ring: oklch(0.707 0.022 261.325);
+
+  /* Color Palette */
+  --palette-white: #E7ECEF;
+  --palette-dark-blue: #274C77;
+  --palette-medium-blue: #6096BA;
+  --palette-light-blue: #A3CEF1;
+  --palette-gray: #8B8C89
 }
 
 a {
@@ -185,6 +192,10 @@ button:focus-visible {
   --sidebar-accent-foreground: oklch(1 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.551 0.027 264.364);
+}
+
+.bg-gradient-radial {
+  background: radial-gradient(ellipse at center, transparent 0%, transparent 50%, rgba(0, 0, 0, 0.1) 100%);
 }
 
 @layer base {
