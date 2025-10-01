@@ -9,26 +9,29 @@ export function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black border-1 border-gray-800" >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-22">
           {/* Logo/Name */}
           <Link to="/" className="flex flex-col">
-            <span className="text-base text-white font-black text-foreground">Rahul Vikram</span>
-            <span className="text-xs text-muted-foreground">Software Engineer</span>
+            <span className="text-2xl text-white font-black text-foreground">Rahul Vikram</span>
+            <span className="text-md" style={{ color: "#A3CEF1" }}>Software Engineer</span>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <Link to="#about-me" className="text-sm text-foreground hover:text-muted-foreground transition-colors">
-              About Me
+            <Link to="#about-me">
+              <span className="text-white">About Me</span>
             </Link>
-            <Link to="#my-work" className="text-sm text-foreground hover:text-muted-foreground transition-colors">
+            <Link to="#my-work" className="font-bold">
               Work
             </Link>
-            <Link to="#projects" className="text-sm text-foreground hover:text-muted-foreground transition-colors">
+            <Link to="#projects" className="font-bold">
               Projects
             </Link>
-            <Link to="#contact" className="text-sm text-foreground hover:text-muted-foreground transition-colors">
-              Projects
+            <Link to="#resume" className="font-bold">
+              Resume
+            </Link>
+            <Link to="#contact" className="font-bold">
+              Contact
             </Link>
             
           </div>

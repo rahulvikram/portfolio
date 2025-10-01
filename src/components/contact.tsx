@@ -80,7 +80,7 @@ const DATA = {
 
 export function Contact() {
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div id="contact" className="flex flex-col items-center justify-center">
       <span className="pointer-events-none bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl leading-none font-semibold whitespace-pre-wrap text-transparent dark:from-white dark:to-slate-900/10">
         Dock
       </span>
