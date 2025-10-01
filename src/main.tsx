@@ -18,15 +18,6 @@ import './index.css'
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
-      <NavigationMenu>
-        <NavigationMenuList>
-          <NavigationMenuItem>
-            <NavigationMenuLink asChild>
-              <Link to="/">About</Link>
-            </NavigationMenuLink>
-          </NavigationMenuItem>
-        </NavigationMenuList>
-      </NavigationMenu>
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/photography" element={<Photography />} />

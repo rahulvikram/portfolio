@@ -7,26 +7,30 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-black border-1 border-gray-800" >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo/Name */}
           <Link to="/" className="flex flex-col">
-            <span className="text-base font-medium text-foreground">Alex Morgan</span>
-            <span className="text-xs text-muted-foreground">Creative Developer</span>
+            <span className="text-base text-white font-black text-foreground">Rahul Vikram</span>
+            <span className="text-xs text-muted-foreground">Software Engineer</span>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <Link to="#work" className="text-sm text-foreground hover:text-muted-foreground transition-colors">
+            <Link to="#about-me" className="text-sm text-foreground hover:text-muted-foreground transition-colors">
+              About Me
+            </Link>
+            <Link to="#my-work" className="text-sm text-foreground hover:text-muted-foreground transition-colors">
               Work
             </Link>
-            <Link to="#about" className="text-sm text-foreground hover:text-muted-foreground transition-colors">
-              About
+            <Link to="#projects" className="text-sm text-foreground hover:text-muted-foreground transition-colors">
+              Projects
             </Link>
             <Link to="#contact" className="text-sm text-foreground hover:text-muted-foreground transition-colors">
-              Contact
+              Projects
             </Link>
+            
           </div>
 
           {/* Mobile Menu Button */}
