@@ -86,6 +86,7 @@ export default defineConfig([
 
 
 ## UI/UX Stuff to do
+- possibly use a different more aesthetic background for the website
 - Add text animations in places
 - Add a custom cursor
 - Make scrolling and cursor movement smooth

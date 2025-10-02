@@ -2,6 +2,7 @@
 
 import { Link } from "react-router-dom"
 import { useState, useEffect } from "react"
+import { AuroraText } from "@/components/ui/aurora-text"
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -14,10 +15,6 @@ export function Navbar() {
       href: "#about-me"
     },
     {
-      name: "Work",
-      href: "#my-work"
-    },
-    {
       name: "Projects",
       href: "#projects"
     },
@@ -28,6 +25,10 @@ export function Navbar() {
     {
       name: "Contact",
       href: "#contact"
+    },
+    {
+      name: "More",
+      href: "/photography"
     }
   ]
 
@@ -61,7 +62,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo/Name with smooth transition */}
-          <Link to="/" className="flex flex-col">
+          <Link to="/" className="flex flex-col text-4xl">
             <span 
               className={`text-2xl text-white font-black transition-all duration-700 ease-out ${
                 showNavText 
@@ -69,17 +70,7 @@ export function Navbar() {
                   : 'opacity-0 transform -translate-y-4'
               }`}
             >
-              Rahul Vikram
-            </span>
-            <span 
-              className={`text-md transition-all duration-700 ease-out delay-100 ${
-                showNavText 
-                  ? 'opacity-100 transform translate-y-0' 
-                  : 'opacity-0 transform -translate-y-4'
-              }`}
-              style={{ color: "var(--palette-light-blue)" }}
-            >
-              Software Engineer
+              <span className="text-4xl">Rahul <AuroraText>Vikram</AuroraText></span>
             </span>
           </Link>
 
@@ -91,6 +82,10 @@ export function Navbar() {
                 key={field.name}
                 onClick={e => {
                   e.preventDefault();
+                  if (field.name === "More") {
+                    window.location.href = field.href;
+                    return;
+                  }
                   const section = document.querySelector(field.href);
                   if (section) {
                     section.scrollIntoView({ behavior: "smooth" });
@@ -103,7 +98,7 @@ export function Navbar() {
                 }`}
                 style={{ transitionDelay: `${200 + index * 100}ms` }}
               >
-                <span className="text-white font-semibold hover:text-gray-300 transition-colors">
+                <span className="text-white font-semibold hover:text-blue-200 transition-colors">
                   {field.name}
                 </span>
               </Link>

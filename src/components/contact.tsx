@@ -13,6 +13,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import { Dock, DockIcon } from "@/components/ui/dock"
+import { SparklesText } from "@/components/ui/sparkles-text"
 
 export type IconProps = React.HTMLAttributes<SVGElement>
 
@@ -65,57 +66,60 @@ const DATA = {
 
 export function Contact() {
   return (
-    <div id="contact" className="flex flex-col items-center justify-center">
-      <h1 className="text-4xl font-bold">Get In Touch!</h1>
-      <TooltipProvider>
-        <Dock direction="middle">
-          {DATA.navbar.map((item) => (
-            <DockIcon key={item.label}>
-              <Tooltip>
-                <TooltipTrigger asChild >
-                  <Link
-                    to={item.href}
-                    aria-label={item.label}
-                    className={cn(
-                      buttonVariants({ variant: "ghost", size: "icon" }),
-                      "size-12 rounded-full hover:bg-black"
-                    )}
-                    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                  >
-                    <item.icon className="size-4" />
-                  </Link>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p className="text-black">{item.label}</p>
-                </TooltipContent>
-              </Tooltip>
-            </DockIcon>
-          ))}
-          <Separator orientation="vertical" className="h-full" />
-          {Object.entries(DATA.contact.social).map(([name, social]) => (
-            <DockIcon key={name}>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Link
-                    to={social.url}
-                    aria-label={social.name}
-                    className={cn(
-                      buttonVariants({ variant: "ghost", size: "icon" }),
-                      "size-12 rounded-full hover:bg-black"
-                    )}
-                    target="_blank"
-                  >
-                    <social.icon className="size-4" />
-                  </Link>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p className="text-black">{name}</p>
-                </TooltipContent>
-              </Tooltip>
-            </DockIcon>
-          ))}
-        </Dock>
-      </TooltipProvider>
-    </div>
+    <>
+      <div id="contact" className="flex flex-col items-center justify-center mb-10">
+        <h1 className="text-4xl font-bold">Get In Touch!</h1>
+        <TooltipProvider>
+          <Dock direction="middle">
+            {DATA.navbar.map((item) => (
+              <DockIcon key={item.label}>
+                <Tooltip>
+                  <TooltipTrigger asChild >
+                    <Link
+                      to={item.href}
+                      aria-label={item.label}
+                      className={cn(
+                        buttonVariants({ variant: "ghost", size: "icon" }),
+                        "size-12 rounded-full hover:bg-black"
+                      )}
+                      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                    >
+                      <item.icon className="size-4" />
+                    </Link>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p className="text-black">{item.label}</p>
+                  </TooltipContent>
+                </Tooltip>
+              </DockIcon>
+            ))}
+            <Separator orientation="vertical" className="h-full" />
+            {Object.entries(DATA.contact.social).map(([name, social]) => (
+              <DockIcon key={name}>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Link
+                      to={social.url}
+                      aria-label={social.name}
+                      className={cn(
+                        buttonVariants({ variant: "ghost", size: "icon" }),
+                        "size-12 rounded-full hover:bg-black"
+                      )}
+                      target="_blank"
+                    >
+                      <social.icon className="size-4" />
+                    </Link>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p className="text-black">{name}</p>
+                  </TooltipContent>
+                </Tooltip>
+              </DockIcon>
+            ))}
+          </Dock>
+        </TooltipProvider>
+      </div>
+      <SparklesText className="text-sm font-thin" sparklesCount={5}>Made with ❤️ (and React) by Rahul Vikram</SparklesText>
+    </>
   )
 }
