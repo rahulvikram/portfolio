@@ -71,3 +71,30 @@ export default defineConfig([
   },
 ])
 ```
+
+## Tech Stack
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- Shadcn UI
+
+
+## Task Backlog
+- Figure out a way to make the flickering background restricted to the landing page and when scrolling down, the background moves with the page.
+- Create components for about me, work, projects, resume, contact, photography external, etc.
+
+
+## UI/UX Stuff to do
+- Add text animations in places
+- Add a custom cursor
+- Make scrolling and cursor movement smooth
+- Create three separate themes for the website
+  - Light: Default theme
+  - Dark: Dark theme
+  - Colorful: Colorful theme
+- Add a toggle button to switch between themes
+
+## Deployment
+- Look into various hosting options such as Vercel, Netlify, Heroku, onrender, AWS, etc.
+- Look into various domain options such as .com, .dev, .tech, .io, etc.

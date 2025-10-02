@@ -73,7 +73,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background: black;
+  background: rgb(0, 0, 0);
   color: white;
   /* background: hsla(279, 95%, 49%, 1); */
   /* background: linear-gradient(90deg, hsla(279, 95%, 49%, 1) 0%, hsla(295, 96%, 50%, 1) 100%); */
