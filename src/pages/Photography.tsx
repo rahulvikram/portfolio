@@ -1,11 +1,14 @@
-
+import { Navbar } from "@/components/navbar";
 
 
 function Photography() {
     return (
-        <div>
-            <h1>Photography</h1>
-        </div>
+        <>
+            <Navbar />    
+            <div className="flex flex-col items-center justify-center h-screen">
+                <h1 className="text-4xl font-bold">Photography</h1>
+            </div>
+        </>
     )
 }
 

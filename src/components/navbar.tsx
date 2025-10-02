@@ -3,12 +3,36 @@
 import { Link } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { AuroraText } from "@/components/ui/aurora-text"
+import { Sun, Moon, Palette } from "lucide-react"
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [isAtTop, setIsAtTop] = useState(true)
   const [showNavText, setShowNavText] = useState(false)
 
+  // Theme state
+  type Theme = "light" | "dark" | "colorful"
+  const [theme, setTheme] = useState<Theme>("dark")
+
+  // Get default theme from local storage
+  useEffect(() => {
+    const savedTheme = (localStorage.getItem("theme") as Theme) || "dark"
+    setTheme(savedTheme)
+  }, [])
+
+  // Update theme
+  useEffect(() => {
+    const root = document.documentElement
+    root.classList.remove("light", "colorful")
+    if (theme === "light") root.classList.add("light")
+    if (theme === "colorful") root.classList.add("colorful")
+    localStorage.setItem("theme", theme)
+  }, [theme])
+
+  const cycleTheme = () => {
+    setTheme(prev => (prev === "light" ? "dark" : prev === "dark" ? "colorful" : "light"))
+  }
+  
   const navFields = [
     {
       name: "About Me",
@@ -17,6 +41,10 @@ export function Navbar() {
     {
       name: "Projects",
       href: "#projects"
+    },
+    {
+      name: "Skills",
+      href: "#skills"
     },
     {
       name: "Resume",
@@ -70,7 +98,15 @@ export function Navbar() {
                   : 'opacity-0 transform -translate-y-4'
               }`}
             >
-              <span className="text-4xl">Rahul <AuroraText>Vikram</AuroraText></span>
+              <span
+                className="text-4xl cursor-pointer"
+                onClick={e => {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+              >
+                Rahul <AuroraText>Vikram</AuroraText>
+              </span>
             </span>
           </Link>
 
@@ -103,31 +139,26 @@ export function Navbar() {
                 </span>
               </Link>
             ))}
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button 
-            onClick={() => setIsOpen(!isOpen)} 
-            className={`md:hidden p-2 text-white transition-all duration-500 ease-out ${
-              showNavText 
-                ? 'opacity-100 transform translate-y-0' 
-                : 'opacity-0 transform translate-y-4'
-            }`}
-            style={{ transitionDelay: '400ms' }}
-            aria-label="Toggle menu"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+            <button
+              onClick={cycleTheme}
+              title={`Switch theme (${theme})`}
+              aria-label="Switch theme"
+              className={`p-2 rounded-md text-white hover:bg-white/10 transition-colors transition-all duration-500 outline-none focus:outline-none focus:ring-0 ${
+                showNavText 
+                  ? 'opacity-100 ease-out transform translate-y-0' 
+                  : 'opacity-0 ease-in transform translate-y-4'
+              }`}
+              style={{ transitionDelay: `${200 + navFields.length * 100}ms` }}
             >
-              {isOpen ? <path d="M6 18L18 6M6 6l12 12" /> : <path d="M4 6h16M4 12h16M4 18h16" />}
-            </svg>
-          </button>
+              {theme === "light" ? (
+                <Sun className="w-5 h-5" />
+              ) : theme === "dark" ? (
+                <Moon className="w-5 h-5" />
+              ) : (
+                <Palette className="w-5 h-5" />
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}

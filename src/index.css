@@ -217,15 +217,60 @@ button:focus-visible {
   --sidebar-ring: oklch(0.551 0.027 264.364);
 }
 
-.bg-gradient-radial {
-  background: radial-gradient(ellipse at center, transparent 0%, transparent 50%, rgba(0, 0, 0, 0.1) 100%);
+.colorful {
+  --background: oklch(0.24 0.06 280);
+  --foreground: oklch(0.98 0.01 250);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.13 0.028 261.692);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.13 0.028 261.692);
+  --primary: oklch(0.78 0.2 310);
+  --primary-foreground: oklch(0.99 0.01 250);
+  --secondary: oklch(0.92 0.04 220);
+  --secondary-foreground: oklch(0.24 0.06 280);
+  --muted: oklch(0.95 0.02 260);
+  --muted-foreground: oklch(0.5 0.05 260);
+  --accent: oklch(0.85 0.19 20);
+  --accent-foreground: oklch(0.24 0.06 280);
+  --destructive: oklch(0.7 0.25 25);
+  --border: oklch(0.9 0.01 260);
+  --input: oklch(0.9 0.01 260);
+  --ring: oklch(0.7 0.05 260);
+  --chart-1: oklch(0.67 0.23 330);
+  --chart-2: oklch(0.64 0.2 210);
+  --chart-3: oklch(0.62 0.21 150);
+  --chart-4: oklch(0.78 0.23 80);
+  --chart-5: oklch(0.74 0.22 20);
+  --sidebar: oklch(0.98 0.002 247.839);
+  --sidebar-foreground: oklch(0.13 0.028 261.692);
+  --sidebar-primary: oklch(0.78 0.2 310);
+  --sidebar-primary-foreground: oklch(0.99 0.01 250);
+  --sidebar-accent: oklch(0.92 0.04 220);
+  --sidebar-accent-foreground: oklch(0.24 0.06 280);
+  --sidebar-border: oklch(0.9 0.01 260);
+  --sidebar-ring: oklch(0.7 0.05 260);
+}
+
+.colorful body {
+  background-image:
+    radial-gradient(ellipse at 20% 10%, rgba(56,189,248,0.15), transparent 50%),
+    radial-gradient(ellipse at 80% 30%, rgba(168,85,247,0.15), transparent 50%),
+    radial-gradient(ellipse at 50% 90%, rgba(244,63,94,0.15), transparent 50%);
+  background-color: #0b1020;
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+
+  .bg-gradient-radial {
+    background: radial-gradient(ellipse at center, transparent 0%, transparent 50%, rgba(0, 0, 0, 0.1) 100%);
   }
-  body {
-    @apply bg-background text-foreground;
+
+  @layer base {
+    * {
+      @apply border-border outline-ring/50;
+    }
+    body {
+      @apply bg-background text-foreground;
+    }
   }
 }

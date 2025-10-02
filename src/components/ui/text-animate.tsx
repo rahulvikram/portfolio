@@ -1,4 +1,4 @@
-import { type ElementType, memo } from "react"
+import { type ElementType, memo, type ReactNode } from "react"
 import { AnimatePresence, motion, type MotionProps, type Variants } from "motion/react"
 
 import { cn } from "@/lib/utils"
@@ -65,6 +65,10 @@ interface TextAnimateProps extends MotionProps {
    * Whether to enable accessibility features (default: true)
    */
   accessible?: boolean
+  /**
+   * A function to render each segment
+   */
+  renderSegment?: (segment: string, index: number) => ReactNode
 }
 
 const staggerTimings: Record<AnimationType, number> = {
@@ -313,11 +317,12 @@ const TextAnimateBase = ({
   by = "word",
   animation = "fadeIn",
   accessible = true,
+  renderSegment,
   ...props
 }: TextAnimateProps) => {
   const MotionComponent = motion.create(Component)
 
-  let segments: string[] = []
+  let segments: string[] | undefined = []
   switch (by) {
     case "word":
       segments = children.split(/(\s+)/)
@@ -393,7 +398,7 @@ const TextAnimateBase = ({
         {...props}
       >
         {accessible && <span className="sr-only">{children}</span>}
-        {segments.map((segment, i) => (
+        {segments?.map((segment, i) => (
           <motion.span
             key={`${by}-${segment}-${i}`}
             variants={finalVariants.item}
@@ -405,7 +410,7 @@ const TextAnimateBase = ({
             )}
             aria-hidden={accessible ? true : undefined}
           >
-            {segment}
+            {renderSegment ? renderSegment(segment, i) : segment}
           </motion.span>
         ))}
       </MotionComponent>
