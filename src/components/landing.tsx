@@ -58,7 +58,7 @@ export function Landing() {
               </div>
               <div className="flex flex-row items-center">
                 <span className="text-5xl mr-3">‎</span>
-                <TypingAnimation typeSpeed={100} className="text-5xl font-bold" words={["Welcome to my personal website!", "Software Engineer", "Web Developer", "AI Researcher", "Photographer", "Clash Royale Lover"]} loop />
+                <TypingAnimation pauseDelay={2000} blinkCursor={true} showCursor={false} typeSpeed={100} className="text-5xl font-bold" words={["Welcome to my personal website!", "Software Engineer", "Web Developer", "AI Researcher", "Photographer", "Clash Royale Lover"]} loop />
               </div>
             </div>
         </div>

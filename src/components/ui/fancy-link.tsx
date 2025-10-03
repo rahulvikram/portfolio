@@ -7,10 +7,10 @@ interface FancyLinkProps {
 
 export function FancyLink({ children, href }: FancyLinkProps) {
     return (
-        <AuroraText speed={1.67} className="font-black">
-            <a href={href} target="_blank" rel="noopener noreferrer">
+        <a href={href} target="_blank" rel="noopener noreferrer">
+            <AuroraText speed={1.67} className="font-bold" colors={["#0070F3", "#38bdf8", "#0070F3", "#38bdf8"]}>
                 {children}
-            </a>
-        </AuroraText>
+            </AuroraText>
+        </a>
     )
 }
