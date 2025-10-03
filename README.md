@@ -72,12 +72,6 @@ export default defineConfig([
 ])
 ```
 
-## Tech Stack
-- React
-- TypeScript
-- Vite
-- Tailwind CSS
-- Shadcn UI
 
 ## Projects to add 
 - Runmetrics

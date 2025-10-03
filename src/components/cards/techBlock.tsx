@@ -19,6 +19,10 @@ import {
     SiCplusplus, 
     SiHtml5, 
     SiCss,
+    SiShadcnui,
+    SiRadixui,
+    SiGooglegemini,
+    SiMagic,
     SiSwift, 
     SiR,
     SiReact, 
@@ -34,7 +38,6 @@ import {
     SiDotnet,
     SiMysql,
     SiPostgresql,
-    SiFirebase,
     SiFlask,
     SiNumpy,
     SiPandas,
@@ -74,12 +77,14 @@ const iconMap: Record<string, React.ComponentType> = {
     'Tailwind CSS': SiTailwindcss,
     'ASP.NET': SiDotnet,
     Flask: SiFlask,
-    
+    'Shadcn UI': SiShadcnui,
+    'Radix UI': SiRadixui,
+    'Magic UI': SiMagic,
+    'Gemini': SiGooglegemini,
     // Cloud & Services
     Vercel: SiVercel,
     'Vercel AI SDK': SiVercel,
-    Firebase: SiFirebase,
-    
+
     // Databases
     MySQL: SiMysql,
     PostgreSQL: SiPostgresql,
@@ -116,7 +121,11 @@ export function TechBlock({ icon, name }: { icon: string, name: string }) {
                 <div className="tech-block">
                     <div className="tech-block-icon flex items-center justify-center">
                         <img
-                            src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${icon.toLowerCase()}/${icon.toLowerCase()}-original.svg`}
+                            src={
+                                icon.toLowerCase() === "aws"
+                                    ? "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"
+                                    : `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${icon.toLowerCase()}/${icon.toLowerCase()}-original.svg`
+                            }
                             alt={icon}
                             style={{ display: "block", width: "1.6rem", height: "1.6rem", objectFit: "contain" }}
                         />

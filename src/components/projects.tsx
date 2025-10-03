@@ -3,6 +3,10 @@ import { AuroraText } from "./ui/aurora-text";
 
 import runmetrics from "../assets/project-photos/runmetrics.png";
 import academia from "../assets/project-photos/academia.png";
+import beaverboard from "../assets/project-photos/beaver-board.png";
+import groqqoli from "../assets/project-photos/groqqoli.png";
+import leaflens from "../assets/project-photos/leaflens.png";
+import packtrack from "../assets/project-photos/packtrack.jpg";
 
 export function Projects() {
     return (
@@ -28,31 +32,31 @@ export function Projects() {
                 />
                 <ProjectCard
                     title="Beaver Board"
-                    description="See our latest and best camp destinations all across the five continents of the globe."
-                    image="https://images.unsplash.com/photo-1736606355698-5efdb410fe93?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    link="https://yournextcamp.com"
-                    technologies={["React", "Next.js", "Tailwind CSS", "TypeScript"]}
+                    description="A minimalistic app where student users can dynamically keep track of upcoming assignments, exams, projects, and classes."
+                    image={beaverboard}
+                    link="https://github.com/rahulvikram/beaver-board/"
+                    technologies={["Vue", "JavaScript", "Node.js", "Express", "Firebase", "Vite", "Git"]}
                 />
                 <ProjectCard
-                    title="RunMetrics Visualizer"
-                    description="See our latest and best camp destinations all across the five continents of the globe."
-                    image="https://images.unsplash.com/photo-1736606355698-5efdb410fe93?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    link="https://yournextcamp.com"
-                    technologies={["React", "Next.js", "Tailwind CSS", "TypeScript"]}
+                    title="Groqqoli"
+                    description="An AI cooking assistant with features such as recipe suggestions from ingredient images, and a text-to-speech recipe voice assistant. Built for BeaverHacks 2025."
+                    image={groqqoli}
+                    link="https://github.com/rahulvikram/groqqoli-beavhacks/"
+                    technologies={["Next.js", "React", "TypeScript", "Tailwind", "Magic UI", "Vercel"]}
                 />
                 <ProjectCard
-                    title="RunMetrics Visualizer"
-                    description="See our latest and best camp destinations all across the five continents of the globe."
-                    image="https://images.unsplash.com/photo-1736606355698-5efdb410fe93?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    link="https://yournextcamp.com"
-                    technologies={["React", "Next.js", "Tailwind CSS", "TypeScript"]}
+                    title="Leaflens.ai"
+                    description="An AI-powered tool that analyzes plant images and provides detailed insights about plant health, detected diseases, and recommended treatments. Powered by Google GenAI."
+                    image={leaflens}
+                    link="https://github.com/rahulvikram/doctor-plant"
+                    technologies={["React", "Next.js", "TypeScript", "Tailwind", "AWS", "Shadcn UI", "Python", "Flask", "Firebase", "Gemini"]}
                 />
                 <ProjectCard
-                    title="RunMetrics Visualizer"
-                    description="See our latest and best camp destinations all across the five continents of the globe."
-                    image="https://images.unsplash.com/photo-1736606355698-5efdb410fe93?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    link="https://yournextcamp.com"
-                    technologies={["React", "Next.js", "Tailwind CSS", "TypeScript"]}
+                    title="PackTrack (Work in Progress)"
+                    description="A platform where delivery/logistics companies can track packages in real-time, get alerts when certain events happen (e.g., package delayed, reached hub, delivery attempted), and support multiple clients."
+                    image={packtrack}
+                    link=""
+                    technologies={["React", "Redux Toolkit", "Tailwind", "Python", "Flask", "RabbitMQ", "PostgreSQL", "AWS"]}
                 />
             </div>
         </section>

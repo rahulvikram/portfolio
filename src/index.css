@@ -85,6 +85,7 @@ body {
   min-height: 100vh;
   animation: gradient 15s ease infinite;
   color: var(--foreground);
+  
   /* background: hsla(279, 95%, 49%, 1); */
   /* background: linear-gradient(90deg, hsla(279, 95%, 49%, 1) 0%, hsla(295, 96%, 50%, 1) 100%); */
   /* background: -moz-linear-gradient(90deg, hsla(279, 95%, 49%, 1) 0%, hsla(295, 96%, 50%, 1) 100%); */
