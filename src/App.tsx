@@ -5,7 +5,7 @@ import { Landing } from '@/components/landing'
 import { Contact } from '@/components/contact'
 import { About } from '@/components/about'
 import { Projects } from '@/components/projects'
-
+import { Skills } from '@/components/skills'
 function App() {
   return (
     <>
@@ -13,6 +13,7 @@ function App() {
       <Landing />
       <About />
       <Projects />
+      <Skills />
       <Contact />
     </>
   )

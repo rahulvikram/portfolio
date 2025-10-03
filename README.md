@@ -82,7 +82,6 @@ export default defineConfig([
 - packtrack ( in progress )
 
 ## Task Backlog
-- Figure out a way to make the flickering background restricted to the landing page and when scrolling down, the background moves with the page.
 - Create components for about me, work, projects, resume, contact, photography external, etc.
 
 
