@@ -92,9 +92,6 @@ export function Contact() {
                       <item.icon className="size-4 text-white" />
                     </Link>
                   </TooltipTrigger>
-                  <TooltipContent>
-                    <p className="text-black">{item.label}</p>
-                  </TooltipContent>
                 </Tooltip>
               </DockIcon>
             ))}
@@ -115,9 +112,6 @@ export function Contact() {
                       <social.icon className="size-4" />
                     </Link>
                   </TooltipTrigger>
-                  <TooltipContent>
-                    <p className="text-black">{name}</p>
-                  </TooltipContent>
                 </Tooltip>
               </DockIcon>
             ))}

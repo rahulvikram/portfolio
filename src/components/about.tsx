@@ -6,21 +6,36 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/
 import me from "../assets/me.jpg"
 export function About(){
     return (
-      <section id="about-me" className="px-6 py-24 ">
-        <div className="flex flex-row items-center justify-center">
+      <section
+        id="about-me"
+        className="px-6 py-24 w-full max-w-screen-xl mx-auto"
+      >
+        <div className="flex flex-row items-center justify-center max-w-full">
           <AuroraText className="text-7xl font-black mb-20 mr-5">About</AuroraText>
           <span className="text-7xl font-black mb-20">Me</span>
         </div>
 
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="space-y-6">
+            <div 
+                className="relative max-w shadow-none cursor-pointer transition-transform active:scale-100 border-none">
+                <img
+                    src={me}
+                    alt="Me"
+                    width={550}
+                    height={550}
+                    className="rounded-lg object-cover"
+                />
+              </div>
+            </div>
             <div>
-              <div className="space-y-4 text-pretty leading-relaxed text-xl text-white text-left">
+              <div className="space-y-4 text-pretty leading-relaxed font-semibold text-xl text-white text-left">
                 <p>
                     Hi, welcome to my personal website! I'm Rahul Vikram, a software engineer, web developer, AI researcher, and photographer in my free time.
                 </p>
                 <p>
-                    I'm currently an undergraduate student at Oregon State University, pursuing a <FancyLink href="https://catalog.oregonstate.edu/college-departments/engineering/school-electrical-engineering-computer-science/computer-science-ba-bs-hba-hbs/#text">B.S. in Computer Science</FancyLink>.
+                    Originally from Portland, I'm currently an undergraduate student at Oregon State University, pursuing a <FancyLink href="https://catalog.oregonstate.edu/college-departments/engineering/school-electrical-engineering-computer-science/computer-science-ba-bs-hba-hbs/#text">B.S. in Computer Science</FancyLink>.
                 </p>
                 <p>
                     Currently, I'm working as a software developer at the <FancyLink href="https://cass.oregonstate.edu/">Center for Applied Systems and Software (CASS)</FancyLink> at Oregon State University. I've worked with a variety of technologies at CASS, including React, TypeScript, Redux Toolkit, Cypress, C#, ASP.NET, SQL Server, Azure DevOps, and Swift, delivering high-quality software solutions to various clients.
@@ -31,19 +46,6 @@ export function About(){
                 <p className="font-bold">
                     This website is meant to be a showcase of my work. Feel free to check it out!
                 </p>
-              </div>
-            </div>
-  
-            <div className="space-y-6">
-            <div 
-                className="relative max-w shadow-none cursor-pointer transition-transform active:scale-100 border-none">
-                <img
-                    src={me}
-                    alt="Me"
-                    width={550}
-                    height={550}
-                    className="rounded-lg object-cover"
-                />
               </div>
             </div>
           </div>

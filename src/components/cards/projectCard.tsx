@@ -7,6 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { TechBlock } from "./techBlock"
 
 type ProjectCardProps = {
   title: string
@@ -32,30 +33,25 @@ export function ProjectCard({
       style={{ textDecoration: "none" }}
     >
       <Card
-        className="border-none bg-gray-900 relative max-w-2xl w-full shadow-none cursor-pointer transition-transform hover:scale-[1.03] active:scale-100 min-h-[540px] min-w-[380px] p-2"
+        className="project-card relative backdrop-blur-sm w-xl border-b border-gray-900 shadow-lg cursor-pointer ease-in-out hover:[background:linear-gradient(135deg,var(--palette-pink)_0%,var(--palette-purple)_33%,var(--palette-blue)_66%,var(--palette-cyan)_100%)] transition-transform bg-black/90 transition-colors duration-1000"
         style={{
-          background:
-            "linear-gradient(135deg, #0070F3 0%, #38bdf8 33%, #0070F3 66%, #38bdf8 100%)",
+          transition: "background-color 0.5s ease-in, background 0.5s ease-in, transform 0.2s",
         }}
       >
+      
         <CardHeader>
           <img
             src={image}
             alt={title}
-            width={700}
-            height={420}
-            className="rounded-lg object-cover w-full h-[320px] max-h-[340px]"
+            className="rounded-md object-cover w-full h-72 md:h-96"
           />
         </CardHeader>
-        <CardContent>
-          <CardTitle className="text-3xl font-extrabold text-black">{title}</CardTitle>
-          <CardDescription className="mb-4 text-lg">{description}</CardDescription>
-          <div className="flex flex-wrap gap-3 mt-4">
+        <CardContent className="flex flex-col gap-1">
+          <CardTitle className="text-3xl md:text-4xl font-extrabold text-white">{title}</CardTitle>
+          <CardDescription className="mb-2 text-white text-base md:text-lg">{description}</CardDescription>
+          <div className="flex flex-wrap gap-2 mt-2">
             {technologies.map((tech) => (
-              // TODO: add tech stack icons in a row
-              <span key={tech} className="px-3 py-1 bg-black/10 rounded text-base font-semibold">
-                {tech}
-              </span>
+              <TechBlock key={tech} icon={tech} name={tech} />
             ))}
           </div>
         </CardContent>

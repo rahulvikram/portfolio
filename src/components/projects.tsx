@@ -1,6 +1,9 @@
 import { ProjectCard } from "./cards/projectCard";
 import { AuroraText } from "./ui/aurora-text";
 
+import runmetrics from "../assets/project-photos/runmetrics.png";
+import academia from "../assets/project-photos/academia.png";
+
 export function Projects() {
     return (
         <section id="projects" className="px-6 py-24">
@@ -8,7 +11,35 @@ export function Projects() {
                 <span className="text-7xl font-black mb-20 mr-4">My</span>
                 <AuroraText className="text-7xl font-black mb-20">Work</AuroraText>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-[600px] gap-y-6 justify-items-center">
+                <ProjectCard
+                    title="RunMetrics Visualizer"
+                    description="Devtool library built from scratch, focused on algorithm analysis data aggregation & visualization. Published to PyPi."
+                    image={runmetrics}
+                    link="https://pypi.org/project/runmetricsvisualizer/"
+                    technologies={["Python", "pandas", "matplotlib", "Git", "pypi"]}
+                />
+                <ProjectCard
+                    title="Academia Hero"
+                    description="Discord bot desgined to assist OSU students with retreiving courses, upcoming assignments, and grades via Canvas API."
+                    image={academia}
+                    link="https://github.com/rahulvikram/Academia-Hero/"
+                    technologies={["JavaScript", "Node.js", "MySQL", "Postman", "Git"]}
+                />
+                <ProjectCard
+                    title="Beaver Board"
+                    description="See our latest and best camp destinations all across the five continents of the globe."
+                    image="https://images.unsplash.com/photo-1736606355698-5efdb410fe93?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    link="https://yournextcamp.com"
+                    technologies={["React", "Next.js", "Tailwind CSS", "TypeScript"]}
+                />
+                <ProjectCard
+                    title="RunMetrics Visualizer"
+                    description="See our latest and best camp destinations all across the five continents of the globe."
+                    image="https://images.unsplash.com/photo-1736606355698-5efdb410fe93?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    link="https://yournextcamp.com"
+                    technologies={["React", "Next.js", "Tailwind CSS", "TypeScript"]}
+                />
                 <ProjectCard
                     title="RunMetrics Visualizer"
                     description="See our latest and best camp destinations all across the five continents of the globe."

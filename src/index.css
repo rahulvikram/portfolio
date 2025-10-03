@@ -53,11 +53,19 @@
   --sidebar-ring: oklch(0.707 0.022 261.325);
 
   /* Color Palette */
-  --palette-white: #E7ECEF;
-  --palette-dark-blue: #274C77;
-  --palette-medium-blue: #6096BA;
-  --palette-light-blue: #A3CEF1;
-  --palette-gray: #8B8C89
+  --palette-pink: #FF0080;
+  --palette-purple: #7928CA;
+  --palette-blue: #0070F3;
+  --palette-cyan: #38bdf8;
+
+  /* Navbar theme variables */
+  --navbar-text: #ffffff;
+  --navbar-border: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
 }
 
 a {
@@ -75,8 +83,8 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background: rgb(0, 0, 0);
-  color: white;
+  animation: gradient 15s ease infinite;
+  color: var(--foreground);
   /* background: hsla(279, 95%, 49%, 1); */
   /* background: linear-gradient(90deg, hsla(279, 95%, 49%, 1) 0%, hsla(295, 96%, 50%, 1) 100%); */
   /* background: -moz-linear-gradient(90deg, hsla(279, 95%, 49%, 1) 0%, hsla(295, 96%, 50%, 1) 100%); */
@@ -87,42 +95,29 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-  color: white;
+  color: var(--foreground);
 }
 
 button {
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: 1px solid var(--border);
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
-  color: white;
+  background-color: var(--card);
+  color: var(--card-foreground);
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: var(--ring);
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: white;
-    background-color: #000000;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #1a1a1a;
-    color: white;
-  }
-}
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -236,15 +231,14 @@ button:focus-visible {
   --sidebar-accent-foreground: #eaf4ff;
   --sidebar-border: #1f2a44;
   --sidebar-ring: #38bdf8;
+
+  --navbar-text: #E7ECEF;
+  --navbar-border: #111827;
 }
+
 .dark body {
-  background-color: #0b1020;
-  background-image:
-    linear-gradient(135deg,
-      rgba(255, 0, 128, 0.22) 0%,
-      rgba(121, 40, 202, 0.22) 30%,
-      rgba(0, 112, 243, 0.22) 65%,
-      rgba(56, 189, 248, 0.22) 100%);
+  background-color: #000000;
+  background-image: none;
 }
 
 @layer base {
@@ -267,4 +261,5 @@ button:focus-visible {
   * {
     @apply border-border outline-ring/50;}
   body {
-    @apply bg-background text-foreground;}}
+    @apply bg-background text-foreground;}
+}
