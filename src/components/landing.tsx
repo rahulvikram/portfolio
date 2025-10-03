@@ -4,12 +4,22 @@ import { TypingAnimation } from "@/components/ui/typing-animation"
 import { AuroraText } from "./ui/aurora-text"
 import { WordRotate } from "@/components/ui/word-rotate"
 import { Ripple } from "@/components/ui/ripple"
+
+/*
+        <div id="landing" className="relative w-full h-[100vh] flex flex-col items-center justify-center overflow-hidden">
+-           <div className="fixed inset-0 w-full h-full z-0 opacity-40 animate-fade-in duration-4000">
+-             <FlickeringGrid squareSize={12} color="white" maxOpacity={0.03} />
+           <div className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-40 animate-fade-in duration-4000">
+             <FlickeringGrid squareSize={12} color="white" maxOpacity={0.03} className="pointer-events-none" />
+            </div>
+*/
+
 export function Landing() {
   return (
     <>
         <div id="landing" className="relative w-full h-[100vh] flex flex-col items-center justify-center overflow-hidden">
-            <div className="fixed inset-0 w-full h-full z-0 opacity-40 animate-fade-in duration-4000">
-              <FlickeringGrid squareSize={12} color="white" maxOpacity={0.05} />
+            <div className="fixed inset-0 w-full h-full pointer-events-none z-0 opacity-40 animate-fade-in duration-4000">
+              <FlickeringGrid squareSize={12} color="white" maxOpacity={0.03} className="pointer-events-none" />
             </div>
             <style>
               {`
@@ -48,7 +58,7 @@ export function Landing() {
               </div>
               <div className="flex flex-row items-center">
                 <span className="text-5xl mr-3">‎</span>
-                <TypingAnimation showCursor={false} typeSpeed={100} className="text-5xl font-bold" words={["Welcome to my personal website!", "Software Engineer", "Web Developer", "AI Researcher", "Photographer", "Clash Royale Lover"]} loop />
+                <TypingAnimation typeSpeed={100} className="text-5xl font-bold" words={["Welcome to my personal website!", "Software Engineer", "Web Developer", "AI Researcher", "Photographer", "Clash Royale Lover"]} loop />
               </div>
             </div>
         </div>

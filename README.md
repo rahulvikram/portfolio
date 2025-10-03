@@ -79,6 +79,13 @@ export default defineConfig([
 - Tailwind CSS
 - Shadcn UI
 
+## Projects to add 
+- Runmetrics
+- Groqqoli
+- Leaflens.ai
+- Beaver board
+- academia hero
+- packtrack ( in progress )
 
 ## Task Backlog
 - Figure out a way to make the flickering background restricted to the landing page and when scrolling down, the background moves with the page.
@@ -86,9 +93,8 @@ export default defineConfig([
 
 
 ## UI/UX Stuff to do
+- Use a custom link hover highlighting effect thingy
 - possibly use a different more aesthetic background for the website
-- Add a custom cursor
-- Make scrolling and cursor movement smooth
 - Create three separate themes for the website
   - Light: Default theme
   - Dark: Dark theme

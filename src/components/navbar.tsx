@@ -11,7 +11,7 @@ export function Navbar() {
   const [showNavText, setShowNavText] = useState(false)
 
   // Theme state
-  type Theme = "light" | "dark" | "colorful"
+  type Theme = "light" | "dark"
   const [theme, setTheme] = useState<Theme>("dark")
 
   // Get default theme from local storage
@@ -23,14 +23,13 @@ export function Navbar() {
   // Update theme
   useEffect(() => {
     const root = document.documentElement
-    root.classList.remove("light", "colorful")
+    root.classList.remove("light")
     if (theme === "light") root.classList.add("light")
-    if (theme === "colorful") root.classList.add("colorful")
     localStorage.setItem("theme", theme)
   }, [theme])
 
   const cycleTheme = () => {
-    setTheme(prev => (prev === "light" ? "dark" : prev === "dark" ? "colorful" : "light"))
+    setTheme(prev => (prev === "light" ? "dark" : prev === "dark" ? "light" : "dark"))
   }
   
   const navFields = [
@@ -143,7 +142,7 @@ export function Navbar() {
               onClick={cycleTheme}
               title={`Switch theme (${theme})`}
               aria-label="Switch theme"
-              className={`p-2 rounded-md text-white hover:bg-white/10 transition-colors transition-all duration-500 outline-none focus:outline-none focus:ring-0 ${
+              className={`p-2 rounded-md text-white cursor hover:bg-white/10 transition-colors transition-all duration-500 outline-none focus:outline-none focus:ring-0 ${
                 showNavText 
                   ? 'opacity-100 ease-out transform translate-y-0' 
                   : 'opacity-0 ease-in transform translate-y-4'

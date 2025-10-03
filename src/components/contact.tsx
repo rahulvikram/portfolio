@@ -14,8 +14,10 @@ import {
 } from "@/components/ui/tooltip"
 import { Dock, DockIcon } from "@/components/ui/dock"
 import { SparklesText } from "@/components/ui/sparkles-text"
+import { AuroraText } from "./ui/aurora-text"
 
 export type IconProps = React.HTMLAttributes<SVGElement>
+const email = import.meta.env.VITE_EMAIL
 
 const Icons = {
   calendar: (props: IconProps) => <CalendarIcon {...props} />,
@@ -47,17 +49,17 @@ const DATA = {
     social: {
       GitHub: {
         name: "GitHub",
-        url: "#",
+        url: "https://github.com/rahulvikram/",
         icon: Icons.github,
       },
       LinkedIn: {
         name: "LinkedIn",
-        url: "#",
+        url: "https://www.linkedin.com/in/rahul-vikram/",
         icon: Icons.linkedin,
       },
       email: {
         name: "Send me an Email",
-        url: "#",
+        url: `mailto:${email}`,
         icon: Icons.email,
       },
     },
@@ -67,10 +69,13 @@ const DATA = {
 export function Contact() {
   return (
     <>
-      <div id="contact" className="flex flex-col items-center justify-center mb-10">
-        <h1 className="text-4xl font-bold">Get In Touch!</h1>
+      <div id="contact" className="flex flex-col items-center justify-center mb-20">
+        <div className="flex flex-row items-center justify-center">
+          <span className="text-7xl font-black mr-2">Get in</span>
+          <AuroraText className="text-7xl font-black">Touch!</AuroraText>
+        </div>
         <TooltipProvider>
-          <Dock direction="middle">
+          <Dock className="border-gray-700" direction="middle">
             {DATA.navbar.map((item) => (
               <DockIcon key={item.label}>
                 <Tooltip>
@@ -84,7 +89,7 @@ export function Contact() {
                       )}
                       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                     >
-                      <item.icon className="size-4" />
+                      <item.icon className="size-4 text-white" />
                     </Link>
                   </TooltipTrigger>
                   <TooltipContent>
