@@ -15,10 +15,7 @@ import { AuroraText } from "./ui/aurora-text"
 export function Landing() {
   return (
     <>
-        <div id="landing" className="relative w-full h-[100vh] flex flex-col items-center justify-center overflow-hidden">
-            <div className="fixed inset-0 w-full h-full pointer-events-none z-0 opacity-80 animate-fade-in duration-4000">
-              <FlickeringGrid squareSize={12} color="white" maxOpacity={0.03} className="pointer-events-none" />
-            </div>
+        <div id="landing" className="relative w-full min-h-[100svh] flex flex-col items-center justify-center overflow-hidden px-4">
             <style>
               {`
                 @keyframes fade-in {
@@ -30,10 +27,10 @@ export function Landing() {
                 }
               `}
             </style>
-            <div className="relative z-10 flex flex-col items-center">
-              <div className="flex flex-row items-center mb-1">
+            <div className="relative z-10 flex flex-col items-center text-center max-w-full">
+              <div className="flex flex-col sm:flex-row items-center sm:items-end mb-1 gap-1 sm:gap-0">
                 <TextAnimate
-                  className="text-9xl font-black mr-5"
+                  className="font-black text-6xl sm:text-[8rem] leading-none mr-0 sm:mr-5"
                   animation="slideDown"
                   by="character"
                   duration={2}
@@ -41,7 +38,7 @@ export function Landing() {
                   Rahul
                 </TextAnimate>
                 <TextAnimate
-                  className="text-9xl font-black"
+                  className="font-black text-6xl sm:text-[8rem] leading-none"
                   animation="slideDown"
                   by="character"
                   duration={2}
@@ -54,13 +51,12 @@ export function Landing() {
                   Vikram
                 </TextAnimate>
               </div>
-              <div className="flex flex-row items-center">
-                <span className="text-5xl mr-3">‎</span>
-                <TypingAnimation pauseDelay={2000} blinkCursor={true} showCursor={false} typeSpeed={100} className="text-5xl font-bold" words={["Welcome to my personal website!", "Software Engineer", "Web Developer", "AI Researcher", "Photographer", "Clash Royale Lover"]} loop />
+              <div className="flex flex-col sm:flex-row items-center">
+                <span className="hidden sm:inline-block text-7xl mr-3">‎</span>
+                <TypingAnimation pauseDelay={2000} blinkCursor={true} showCursor={false} typeSpeed={100} className="text-3xl sm:text-6xl font-bold" words={["Welcome to my personal website!", "Software Engineer", "Web Developer", "AI Researcher", "Photographer"]} loop />
               </div>
             </div>
         </div>
     </>
   )
 }
-
