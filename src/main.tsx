@@ -15,7 +15,6 @@ import {
   NavigationMenuViewport,
 } from "@/components/ui/navigation-menu"
 import App from './App.tsx'
-import Photography from './pages/Photography.tsx'
 import './index.css'
 
 const lenis = new Lenis({
@@ -34,7 +33,6 @@ createRoot(document.getElementById('root')!).render(
       <SmoothCursor />
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/photography" element={<Photography />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,

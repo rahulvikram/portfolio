@@ -71,8 +71,8 @@ export function Contact() {
     <>
       <div id="contact" className="flex flex-col items-center justify-center mb-20">
         <div className="flex flex-row items-center justify-center">
-          <span className="text-7xl font-black mr-2">Get in</span>
-          <AuroraText className="text-7xl font-black">Touch!</AuroraText>
+          <AuroraText className="text-7xl font-black mr-3">Contact</AuroraText>
+          <span className="text-7xl font-black mr-2">Info</span>
         </div>
         <TooltipProvider>
           <Dock className="border-gray-700" direction="middle">

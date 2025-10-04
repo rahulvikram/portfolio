@@ -6,14 +6,16 @@ import { Contact } from '@/components/contact'
 import { About } from '@/components/about'
 import { Projects } from '@/components/projects'
 import { Skills } from '@/components/skills'
+import { Work } from '@/components/work'
 function App() {
   return (
     <>
       <Navbar />
       <Landing />
       <About />
-      <Projects />
+      <Work />
       <Skills />
+      <Projects />
       <Contact />
     </>
   )

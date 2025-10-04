@@ -48,7 +48,7 @@ import {
     SiGithub,
     SiDocker,
     SiJupyter,
-    SiGooglecolab
+    SiGooglecolab,
 } from '@icons-pack/react-simple-icons';
 
 // Create a mapping from icon name (string) to the respective icon component
@@ -124,7 +124,18 @@ export function TechBlock({ icon, name }: { icon: string, name: string }) {
                             src={
                                 icon.toLowerCase() === "aws"
                                     ? "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"
-                                    : `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${icon.toLowerCase()}/${icon.toLowerCase()}-original.svg`
+                                    : icon.toLowerCase() === "c#" || icon.toLowerCase() === "csharp"
+                                        ? "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg"
+                                        : icon.toLowerCase() === "sql server"
+                                            ? "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original-wordmark.svg"
+                                            : icon.toLowerCase() === "ef core"
+                                                ? "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/entityframeworkcore/entityframeworkcore-original.svg"
+                                                : icon.toLowerCase() === "azure devops"
+                                                    ? "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuredevops/azuredevops-original.svg"
+                                                    : icon.toLowerCase() === ".net"
+                                                        ? "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dot-net/dot-net-original.svg"
+                                        : `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${icon.toLowerCase()}/${icon.toLowerCase()}-original.svg`
+
                             }
                             alt={icon}
                             style={{ display: "block", width: "1.6rem", height: "1.6rem", objectFit: "contain" }}

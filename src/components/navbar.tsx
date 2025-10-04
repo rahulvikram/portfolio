@@ -5,6 +5,7 @@ import { useState, useEffect } from "react"
 import { AuroraText } from "@/components/ui/aurora-text"
 import { Sun, Moon, Palette } from "lucide-react"
 import { ScrollProgress } from "@/components/ui/scroll-progress"
+import Resume from "../assets/Resume.pdf"
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -18,24 +19,26 @@ export function Navbar() {
       href: "#about-me"
     },
     {
-      name: "Projects",
-      href: "#projects"
+      name: "Work",
+      href: "#my-work"
     },
     {
       name: "Skills",
       href: "#skills"
     },
     {
-      name: "Resume",
-      href: "#resume"
+      name: "Projects",
+      href: "#projects"
     },
     {
       name: "Contact",
       href: "#contact"
     },
     {
-      name: "More",
-      href: "/photography"
+      name: "Resume",
+      href: Resume,
+      target: "_blank",
+      rel: "noopener noreferrer"
     }
   ]
 
@@ -60,7 +63,7 @@ export function Navbar() {
 
   return (
     <>
-      <ScrollProgress className="top-[80px] z-50" />
+      <ScrollProgress className="top-[81px] z-50" />
       <nav 
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
           isAtTop 
@@ -101,6 +104,10 @@ export function Navbar() {
                     e.preventDefault();
                     if (field.name === "More") {
                       window.location.href = field.href;
+                      return;
+                    }
+                    if (field.name === "Resume") {
+                      window.open(field.href, "_blank");
                       return;
                     }
                     const section = document.querySelector(field.href);
