@@ -3,6 +3,15 @@
 Built using React, Tailwind CSS, and Vite.
 
 ## Deployment
-- figure out how to host a PDF of my resume on the website (cloud or something)
-- Look into various hosting options such as Vercel, Netlify, Heroku, onrender, AWS, etc.
-- Look into various domain options such as .com, .dev, .tech, .io, etc.
+- Register new domain name on AWS Route 53
+- Create a new AWS ACM certificate using the new domain name
+- Create AWS CloudFront distribution for distributing the website
+- Connect the CloudFront distribution to the S3 bucket
+- Create a new AWS Route 53 record set for the new domain name and point it to the CloudFront distribution
+
+
+### Deployment Stack
+- AWS Route 53
+- AWS ACM
+- AWS S3 Buckets
+- AWS CloudFront
