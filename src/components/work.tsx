@@ -1,12 +1,4 @@
-import { ProjectCard } from "./cards/projectCard";
 import { AuroraText } from "./ui/aurora-text";
-
-import runmetrics from "../assets/project-photos/runmetrics.png";
-import academia from "../assets/project-photos/academia.png";
-import beaverboard from "../assets/project-photos/beaver-board.png";
-import groqqoli from "../assets/project-photos/groqqoli.png";
-import leaflens from "../assets/project-photos/leaflens.png";
-import packtrack from "../assets/project-photos/packtrack.jpg";
 import { Card } from "./ui/card";
 import { Badge } from "./ui/badge";
 import odot from "../assets/company-logos/odot.png";

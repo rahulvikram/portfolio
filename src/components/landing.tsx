@@ -2,7 +2,6 @@ import { FlickeringGrid } from "@/components/ui/flickering-grid"
 import { TextAnimate } from "@/components/ui/text-animate"
 import { TypingAnimation } from "@/components/ui/typing-animation"
 import { AuroraText } from "./ui/aurora-text"
-import { WordRotate } from "@/components/ui/word-rotate"
 
 /*
         <div id="landing" className="relative w-full h-[100vh] flex flex-col items-center justify-center overflow-hidden">
@@ -57,7 +56,6 @@ export function Landing() {
               </div>
               <div className="flex flex-row items-center">
                 <span className="text-5xl mr-3">‎</span>
-                {/* <WordRotate className="text-5xl font-bold" words={["Welcome to my personal website!", "Software Engineer", "Web Developer", "AI Researcher", "Photographer", "Clash Royale Lover"]} /> */}
                 <TypingAnimation pauseDelay={2000} blinkCursor={true} showCursor={false} typeSpeed={100} className="text-5xl font-bold" words={["Welcome to my personal website!", "Software Engineer", "Web Developer", "AI Researcher", "Photographer", "Clash Royale Lover"]} loop />
               </div>
             </div>

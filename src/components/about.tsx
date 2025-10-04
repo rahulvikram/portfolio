@@ -1,8 +1,5 @@
-import { Award, Camera, Globe, Cpu } from "lucide-react"
 import { AuroraText } from "./ui/aurora-text"
 import { FancyLink } from "./ui/fancy-link"
-import { ProjectCard } from "./cards/projectCard"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card"
 import me from "../assets/me.jpg"
 export function About(){
     return (

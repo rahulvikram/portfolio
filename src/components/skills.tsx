@@ -1,12 +1,4 @@
-import { ProjectCard } from "./cards/projectCard";
 import { AuroraText } from "./ui/aurora-text";
-
-import { Card } from "./ui/card";
-import { Badge } from "./ui/badge";
-import odot from "../assets/company-logos/odot.png";
-import osu from "../assets/company-logos/osu.png";
-import osucoe from "../assets/company-logos/osucoe.png";
-import { TechBlock } from "./cards/techBlock";
 import { SkillCard } from "./cards/skillCard";
 
 export function Skills() {

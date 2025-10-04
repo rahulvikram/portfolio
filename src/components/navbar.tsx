@@ -3,7 +3,6 @@
 import { Link } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { AuroraText } from "@/components/ui/aurora-text"
-import { Sun, Moon, Palette } from "lucide-react"
 import { ScrollProgress } from "@/components/ui/scroll-progress"
 import Resume from "../assets/Resume.pdf"
 

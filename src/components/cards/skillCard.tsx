@@ -1,15 +1,7 @@
 "use client"
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-import { TechBlock } from "./techBlock"
+import { Card } from "@/components/ui/card"
 import { ColorTechBlock } from "./colorTechblock"
-import { Badge } from "../ui/badge"
 import { AuroraText } from "../ui/aurora-text"
 
 type SkillCardProps = {
