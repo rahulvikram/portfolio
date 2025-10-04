@@ -1,4 +1,3 @@
-import { FlickeringGrid } from "@/components/ui/flickering-grid"
 import { TextAnimate } from "@/components/ui/text-animate"
 import { TypingAnimation } from "@/components/ui/typing-animation"
 import { AuroraText } from "./ui/aurora-text"
@@ -15,48 +14,48 @@ import { AuroraText } from "./ui/aurora-text"
 export function Landing() {
   return (
     <>
-        <div id="landing" className="relative w-full min-h-[100svh] flex flex-col items-center justify-center overflow-hidden px-4">
-            <style>
-              {`
-                @keyframes fade-in {
-                  from { opacity: 0; }
-                  to { opacity: 0.4; }
-                }
-                .animate-fade-in {
-                  animation: fade-in 2s ease-in;
-                }
-              `}
-            </style>
-            <div className="relative z-10 flex flex-col items-center text-center max-w-full">
-              <div className="flex flex-col sm:flex-row items-center sm:items-end mb-1 gap-1 sm:gap-0">
-                <TextAnimate
-                  className="font-black text-6xl sm:text-[8rem] leading-none mr-0 sm:mr-5"
-                  animation="slideDown"
-                  by="character"
-                  duration={2}
-                >
-                  Rahul
-                </TextAnimate>
-                <TextAnimate
-                  className="font-black text-6xl sm:text-[8rem] leading-none"
-                  animation="slideDown"
-                  by="character"
-                  duration={2}
-                  renderSegment={(seg) => (
-                    <AuroraText speed={1.67}>
-                      {seg}
-                    </AuroraText>
-                  )}
-                >
-                  Vikram
-                </TextAnimate>
-              </div>
-              <div className="flex flex-col sm:flex-row items-center">
-                <span className="hidden sm:inline-block text-7xl mr-3">‎</span>
-                <TypingAnimation pauseDelay={2000} blinkCursor={true} showCursor={false} typeSpeed={100} className="text-3xl sm:text-6xl font-bold" words={["Welcome to my personal website!", "Software Engineer", "Web Developer", "AI Researcher", "Photographer"]} loop />
-              </div>
-            </div>
+      <div id="landing" className="relative w-screen min-h-[100svh] max-w-full flex flex-col items-center justify-center overflow-hidden px-4 select-none">
+        <style>
+          {`
+            @keyframes fade-in {
+              from { opacity: 0; }
+              to { opacity: 0.4; }
+            }
+            .animate-fade-in {
+              animation: fade-in 2s ease-in;
+            }
+          `}
+        </style>
+        <div className="relative z-10 flex flex-col items-center text-center max-w-full">
+          <div className="flex flex-col sm:flex-row items-center sm:items-end mb-1 gap-1 sm:gap-0">
+            <TextAnimate
+              className="font-black mr-0 sm:mr-5 text-4xl sm:text-9xl leading-none select-none"
+              animation="slideDown"
+              by="character"
+              duration={2}
+            >
+              Rahul
+            </TextAnimate>
+            <TextAnimate
+              className="font-black text-4xl sm:text-9xl leading-none select-none"
+              animation="slideDown"
+              by="character"
+              duration={2}
+              renderSegment={(seg) => (
+                <AuroraText speed={1.67}>
+                  {seg}
+                </AuroraText>
+              )}
+            >
+              Vikram
+            </TextAnimate>
+          </div>
+          <div className="flex flex-col sm:flex-row items-center">
+            <span className="hidden sm:inline-block text-7xl mr-3">‎</span>
+            <TypingAnimation pauseDelay={2000} blinkCursor={true} showCursor={false} typeSpeed={100} className="text-3xl sm:text-6xl font-bold" words={["Welcome to my personal website!", "Software Engineer", "Web Developer", "AI Researcher", "Photographer"]} loop />
+          </div>
         </div>
+      </div>
     </>
   )
 }

@@ -84,6 +84,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   overflow-x: hidden;
+  
   animation: gradient 15s ease infinite;
   color: var(--foreground);
   /* background: linear-gradient(135deg, 

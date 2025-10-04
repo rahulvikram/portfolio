@@ -69,18 +69,19 @@ export function Work() {
 
                             {/* Card Content */}
                             <div className="flex-1">
-                                <a href={exp.link} target="_blank" rel="noopener noreferrer">
                                 <Card className="p-6 bg-black/80 hover:shadow-lg transition-all hover:translate-x-2 duration-300">
                                     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
                                         <div className="flex items-center gap-3">
                                             {/* Company Logo */}
-                                            <div className=" rounded bg-muted flex items-center justify-center border border-border">
-                                                <img
-                                                    src={exp.logo}
-                                                    alt={`${exp.company} logo`}
-                                                    className="w-14 h-14 object-cover"
-                                                />
-                                            </div>
+                                            <a href={exp.link} target="_blank" rel="noopener noreferrer">
+                                                <div className=" rounded bg-muted flex items-center justify-center border border-border">
+                                                    <img
+                                                        src={exp.logo}
+                                                        alt={`${exp.company} logo`}
+                                                        className="w-14 h-14 object-cover"
+                                                        />
+                                                </div>
+                                            </a>
                                             <div>
                                                 <h3 className="text-xl font-semibold text-foreground text-left">{exp.title}</h3>
                                                 <p
@@ -107,8 +108,7 @@ export function Work() {
                                             </Badge>
                                             ))}
                                         </div>
-                                    </Card>
-                                </a>
+                                </Card>
                             </div>
                         </div>
                     ))}
