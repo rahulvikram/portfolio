@@ -22,17 +22,17 @@ export function SkillCard({
     }
     return (
     <div className="w-full">
-        <Card className="p-6 bg-black/80 hover:shadow-lg w-full gap-4">
+        <Card className="p-4 bg-black/80 hover:shadow-lg w-full gap-3">
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between">
                 <div className="flex items-center gap-3">
                     <div>
-                        <AuroraText className="text-3xl font-black mr-2">{firstWord}</AuroraText>
-                        <span className="text-3xl font-black">{secondWord} </span>
-                        {thirdWord && <span className="text-3xl font-black">{thirdWord}</span>}
+                        <AuroraText className="text-2xl font-black mr-2">{firstWord}</AuroraText>
+                        <span className="text-2xl font-black">{secondWord} </span>
+                        {thirdWord && <span className="text-2xl font-black">{thirdWord}</span>}
                     </div>
                 </div>
             </div>
-            <div className="flex flex-wrap gap-3">  
+            <div className="flex flex-wrap gap-2">  
                 {techs.map((tech) => (
                     <ColorTechBlock icon={tech} name={tech} key={tech} />
                 ))}

@@ -62,7 +62,7 @@ export function Navbar() {
 
   return (
     <>
-      <ScrollProgress className="top-[81px] z-50" />
+      <ScrollProgress className="top-[65px] z-50" />
       <nav 
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
           isAtTop 
@@ -71,18 +71,18 @@ export function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+            <div className="flex items-center justify-between h-16">
             {/* Logo/Name with smooth transition */}
-            <Link to="/" className="flex flex-col text-4xl">
+            <Link to="/" className="flex flex-col text-2xl">
               <span 
-                className={`text-2xl text-white font-black transition-all duration-700 ease-out ${
+                className={`text-xl text-white font-black transition-all duration-700 ease-out ${
                   showNavText 
                     ? 'opacity-100 transform translate-y-0' 
                     : 'opacity-0 transform -translate-y-4'
                 }`}
               >
                 <span
-                  className="text-4xl cursor-pointer"
+                  className="text-2xl cursor-pointer"
                   onClick={e => {
                     e.preventDefault();
                     window.scrollTo({ top: 0, behavior: "smooth" });

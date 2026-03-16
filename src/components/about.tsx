@@ -5,29 +5,29 @@ export function About(){
     return (
       <section
         id="about-me"
-        className="px-6 py-24 w-full max-w-screen-xl mx-auto"
+        className="px-6 py-16 w-full max-w-screen-lg mx-auto"
       >
         <div className="flex flex-row items-center justify-center max-w-full">
-          <AuroraText className="text-7xl font-black mb-20 mr-5">About</AuroraText>
-          <span className="text-7xl font-black mb-20">Me</span>
+          <AuroraText className="text-5xl font-black mb-12 mr-4">About</AuroraText>
+          <span className="text-5xl font-black mb-12">Me</span>
         </div>
 
         <div className="mx-auto">
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="grid gap-10 lg:grid-cols-2 lg:gap-12">
           <div className="space-y-6">
             <div 
                 className="relative max-w shadow-none cursor-pointer transition-transform active:scale-100 border-none">
                 <img
                     src={me}
                     alt="Me"
-                    width={550}
-                    height={550}
+                    width={450}
+                    height={450}
                     className="rounded-lg object-cover"
                 />
               </div>
             </div>
             <div>
-              <div className="space-y-4 text-pretty leading-relaxed font-semibold text-xl text-white text-left">
+              <div className="space-y-3 text-pretty leading-relaxed font-semibold text-base text-white text-left">
                 <p>
                     Hi, welcome to my personal website! I'm Rahul Vikram, a software engineer, web developer, AI researcher, and photographer in my free time.
                 </p>

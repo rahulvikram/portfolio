@@ -70,14 +70,14 @@ export function Contact() {
     <>
       <div id="contact" className="flex flex-col items-center justify-center mb-20">
         <div className="flex flex-row items-center justify-center">
-          <AuroraText className="text-7xl font-black mr-3">Contact</AuroraText>
-          <span className="text-7xl font-black mr-2">Info</span>
+          <AuroraText className="text-5xl font-black mr-3">Contact</AuroraText>
+          <span className="text-5xl font-black mr-2">Info</span>
         </div>
         <TooltipProvider>
           <Dock
-            className="border-gray-700 px-4 py-3 h-[72px] gap-3 rounded-3xl"
-            iconSize={48}
-            iconMagnification={68}
+            className="border-gray-700 px-3 py-2 h-[58px] gap-2 rounded-2xl"
+            iconSize={40}
+            iconMagnification={56}
             direction="middle"
           >
             {DATA.navbar.map((item) => (
@@ -89,11 +89,11 @@ export function Contact() {
                       aria-label={item.label}
                       className={cn(
                         buttonVariants({ variant: "ghost", size: "icon" }),
-                        "size-14 rounded-full text-white hover:bg-zinc-800/80 hover:text-white dark:hover:bg-zinc-800/80"
+                        "size-10 rounded-full text-white hover:bg-zinc-800/80 hover:text-white dark:hover:bg-zinc-800/80"
                       )}
                       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                     >
-                      <item.icon className="size-5 text-white" />
+                      <item.icon className="size-4 text-white" />
                     </Link>
                   </TooltipTrigger>
                 </Tooltip>
@@ -109,11 +109,11 @@ export function Contact() {
                       aria-label={social.name}
                       className={cn(
                         buttonVariants({ variant: "ghost", size: "icon" }),
-                        "size-14 rounded-full text-white hover:bg-zinc-800/80 hover:text-white dark:hover:bg-zinc-800/80"
+                        "size-10 rounded-full text-white hover:bg-zinc-800/80 hover:text-white dark:hover:bg-zinc-800/80"
                       )}
                       target="_blank"
                     >
-                      <social.icon className="size-6" />
+                      <social.icon className="size-4" />
                     </Link>
                   </TooltipTrigger>
                 </Tooltip>

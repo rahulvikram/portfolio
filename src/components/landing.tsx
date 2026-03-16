@@ -29,7 +29,7 @@ export function Landing() {
         <div className="relative z-10 flex flex-col items-center text-center max-w-full">
           <div className="flex flex-col sm:flex-row items-center sm:items-end mb-1 gap-1 sm:gap-0">
             <TextAnimate
-              className="font-black mr-0 sm:mr-5 text-4xl sm:text-9xl leading-none select-none"
+              className="font-black mr-0 sm:mr-4 text-4xl sm:text-7xl leading-none select-none"
               animation="slideDown"
               by="character"
               duration={2}
@@ -37,7 +37,7 @@ export function Landing() {
               Rahul
             </TextAnimate>
             <TextAnimate
-              className="font-black text-4xl sm:text-9xl leading-none select-none"
+              className="font-black text-4xl sm:text-7xl leading-none select-none"
               animation="slideDown"
               by="character"
               duration={2}
@@ -51,8 +51,8 @@ export function Landing() {
             </TextAnimate>
           </div>
           <div className="flex flex-col sm:flex-row items-center">
-            <span className="hidden sm:inline-block text-7xl mr-3">‎</span>
-            <TypingAnimation pauseDelay={2000} blinkCursor={true} showCursor={false} typeSpeed={100} className="text-3xl sm:text-6xl font-bold" words={["Welcome to my personal website!", "Software Engineer", "Web Developer", "AI Researcher", "Photographer"]} loop />
+            <span className="hidden sm:inline-block text-5xl mr-3">‎</span>
+            <TypingAnimation pauseDelay={2000} blinkCursor={true} showCursor={false} typeSpeed={100} className="text-2xl sm:text-4xl font-bold" words={["Welcome to my personal website!", "Software Engineer", "Web Developer", "AI Researcher", "Photographer"]} loop />
           </div>
         </div>
       </div>
