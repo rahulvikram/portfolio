@@ -7,6 +7,7 @@ import beaverboard from "../assets/project-photos/beaver-board.png";
 import groqqoli from "../assets/project-photos/groqqoli.png";
 import leaflens from "../assets/project-photos/leaflens.png";
 import packtrack from "../assets/project-photos/packtrack.jpg";
+import internshipscraper from "../assets/company-logos/github.png";
 
 export function Projects() {
     return (
@@ -57,6 +58,37 @@ export function Projects() {
                     image={packtrack}
                     link=""
                     technologies={["React", "Redux Toolkit", "Tailwind", "Python", "Flask", "RabbitMQ", "PostgreSQL", "AWS", "Git"]}
+                />
+                <ProjectCard
+                    title="RF Safety"
+                    description="A real-time road safety platform using Roboflow workflows, inference, and supervision libraries for object detection and annotated safety-zone monitoring."
+                    link=""
+                    technologies={["React", "Tailwind CSS", "Python", "Flask", "Git"]}
+                />
+                <ProjectCard
+                    title="Towards Universal Semantics w/ LLMs"
+                    description="Introduces LLMs capable of generating Natural Semantic Metalanguage explications using fine-tuned Llama-3 models, a 44K-entry NSM dataset, and evaluation pipelines."
+                    link=""
+                    technologies={["Python", "PyTorch", "Git"]}
+                />
+                <ProjectCard
+                    title="Optimal Wakefulness"
+                    description="A Swift-based Apple Watch app that uses real-time sleep and motion data to wake users at an optimal point in their sleep cycle."
+                    link=""
+                    technologies={["Swift"]}
+                />
+                <ProjectCard
+                    title="Internship Scraper"
+                    image={internshipscraper}
+                    description="A Python script that monitors internship repositories and notifies users of new postings through an integrated Discord webhook."
+                    link="https://github.com/rahulvikram/internship-scraper/"
+                    technologies={["Python", "GitHub", "Git"]}
+                />
+                <ProjectCard
+                    title="ASPortfolio"
+                    description="A simple portfolio website and online marketplace built in ASP.NET Core MVC to explore core system design concepts."
+                    link=""
+                    technologies={["C#", ".NET", "ASP.NET", "Git"]}
                 />
             </div>
         </section>
