@@ -8,7 +8,7 @@
   font-family: "Inter Tight", sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  /* cursor: none !important; */
+  cursor: none !important;
   scroll-behavior: smooth;
 
   color-scheme: light dark;
@@ -63,9 +63,13 @@
   --navbar-border: transparent;
 }
 
+*, *::before, *::after {
+  cursor: none !important;
+}
+
 ::-webkit-scrollbar {
   width: 0px;
-  background: transparent; /* make scrollbar transparent */
+  background: transparent;
 }
 
 a {
