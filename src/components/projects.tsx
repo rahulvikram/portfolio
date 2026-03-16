@@ -8,15 +8,17 @@ import groqqoli from "../assets/project-photos/groqqoli.png";
 import leaflens from "../assets/project-photos/leaflens.png";
 import packtrack from "../assets/project-photos/packtrack.jpg";
 import internshipscraper from "../assets/company-logos/github.png";
+import optimalwakefulness from "../assets/project-photos/optw.png";
+import rf from "../assets/project-photos/rf.png";
 
 export function Projects() {
     return (
-        <section id="projects" className="px-6 py-24">
+        <section id="projects" className="px-6 py-16">
             <div className="flex flex-row items-center justify-center">
-                <span className="text-7xl font-black mb-20 mr-4">My</span>
-                <AuroraText className="text-7xl font-black mb-20">Projects</AuroraText>
+                <span className="text-5xl font-black mb-12 mr-3">My</span>
+                <AuroraText className="text-5xl font-black mb-12">Projects</AuroraText>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-[600px] gap-y-6 justify-items-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-60 gap-y-4 max-w-6xl mx-auto justify-items-center">
                 <ProjectCard
                     title="RunMetrics Visualizer"
                     description="Devtool library built from scratch, focused on algorithm analysis data aggregation & visualization. Published to PyPi."
@@ -56,26 +58,22 @@ export function Projects() {
                     title="PackTrack (Work in Progress)"
                     description="A platform where delivery/logistics companies can track packages in real-time, get alerts when certain events happen (e.g., package delayed, reached hub), and support multiple clients."
                     image={packtrack}
-                    link=""
+                    link="https://github.com/rahulvikram/packtrack"
                     technologies={["React", "Redux Toolkit", "Tailwind", "Python", "Flask", "RabbitMQ", "PostgreSQL", "AWS", "Git"]}
                 />
                 <ProjectCard
                     title="RF Safety"
                     description="A real-time road safety platform using Roboflow workflows, inference, and supervision libraries for object detection and annotated safety-zone monitoring."
-                    link=""
+                    image={rf}
+                    link="https://github.com/rahulvikram/rf-safety"
                     technologies={["React", "Tailwind CSS", "Python", "Flask", "Git"]}
-                />
-                <ProjectCard
-                    title="Towards Universal Semantics w/ LLMs"
-                    description="Introduces LLMs capable of generating Natural Semantic Metalanguage explications using fine-tuned Llama-3 models, a 44K-entry NSM dataset, and evaluation pipelines."
-                    link=""
-                    technologies={["Python", "PyTorch", "Git"]}
                 />
                 <ProjectCard
                     title="Optimal Wakefulness"
                     description="A Swift-based Apple Watch app that uses real-time sleep and motion data to wake users at an optimal point in their sleep cycle."
-                    link=""
-                    technologies={["Swift"]}
+                    image={optimalwakefulness}
+                    link="https://github.com/Carson274/Optimal-Wakefulness/"
+                    technologies={["Swift", "Xcode"]}
                 />
                 <ProjectCard
                     title="Internship Scraper"
@@ -85,9 +83,15 @@ export function Projects() {
                     technologies={["Python", "GitHub", "Git"]}
                 />
                 <ProjectCard
+                    title="Towards Universal Semantics w/ LLMs"
+                    description="Introduces LLMs capable of generating Natural Semantic Metalanguage explications using fine-tuned Llama-3 models, a 44K-entry NSM dataset, and evaluation pipelines."
+                    link="https://arxiv.org/pdf/2505.11764"
+                    technologies={["Python", "PyTorch", "Git"]}
+                />
+                <ProjectCard
                     title="ASPortfolio"
                     description="A simple portfolio website and online marketplace built in ASP.NET Core MVC to explore core system design concepts."
-                    link=""
+                    link="https://github.com/rahulvikram/aspnet"
                     technologies={["C#", ".NET", "ASP.NET", "Git"]}
                 />
             </div>

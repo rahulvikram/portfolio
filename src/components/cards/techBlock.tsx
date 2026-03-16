@@ -48,6 +48,7 @@ import {
     SiGithub,
     SiDocker,
     SiJupyter,
+    SiXcode,
     SiGooglecolab,
 } from '@icons-pack/react-simple-icons';
 
@@ -81,6 +82,7 @@ const iconMap: Record<string, React.ComponentType> = {
     'Radix UI': SiRadixui,
     'Magic UI': SiMagic,
     'Gemini': SiGooglegemini,
+    Xcode: SiXcode,
     // Cloud & Services
     Vercel: SiVercel,
     'Vercel AI SDK': SiVercel,
@@ -105,15 +107,17 @@ const iconMap: Record<string, React.ComponentType> = {
     'Google Colab': SiGooglecolab
 };
 
-export function TechBlock({ icon, name }: { icon: string, name: string }) {
-    // Get the icon component from the map
+export function TechBlock({ icon, name, size = "md" }: { icon: string, name: string, size?: "sm" | "md" }) {
     const IconComponent = iconMap[icon];
+
+    const iconPx = size === "sm" ? "0.9rem" : "1.6rem";
+    const textClass = size === "sm" ? "tech-block-name text-[0.65rem] leading-tight" : "tech-block-name";
 
     return (
         <>
             {IconComponent ? (
                 <div className="tech-block">
-                    <div className="tech-block-icon">
+                    <div className="tech-block-icon flex items-center justify-center [&>svg]:w-full [&>svg]:h-full" style={{ width: iconPx, height: iconPx }}>
                         <IconComponent />
                     </div>
                 </div>
@@ -138,12 +142,12 @@ export function TechBlock({ icon, name }: { icon: string, name: string }) {
 
                             }
                             alt={icon}
-                            style={{ display: "block", width: "1.6rem", height: "1.6rem", objectFit: "contain" }}
+                            style={{ display: "block", width: iconPx, height: iconPx, objectFit: "contain" }}
                         />
                     </div>
                 </div>
             )}
-            <span className="tech-block-name">{name}</span>
+            <span className={textClass}>{name}</span>
 
         </>
     )

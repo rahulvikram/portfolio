@@ -28,7 +28,7 @@ export function ProjectCard({
   const cardContent = (
     <>
       <Card
-        className={`project-card relative bg-black/80 w-xl border-b border-gray-700 shadow-lg ease-in-out transition-transform transition-colors duration-1000 ${
+        className={`project-card relative bg-black/80 w-md max-w-md border-b border-gray-700 shadow-lg ease-in-out transition-transform transition-colors duration-1000 !py-2 !px-2 !gap-0 ${
           isClickable
             ? "cursor-pointer hover:[background:linear-gradient(135deg,var(--palette-pink)_0%,var(--palette-purple)_33%,var(--palette-blue)_66%,var(--palette-cyan)_100%)]"
             : "cursor-default"
@@ -37,29 +37,33 @@ export function ProjectCard({
           transition: "background-color 0.5s ease-in, background 0.5s ease-in, transform 0.2s",
         }}
       >
-        <CardHeader>
+        <CardHeader className="p-3 pb-2">
           {image ? (
             <img
               src={image}
               alt={title}
-              className="rounded-md object-cover w-full h-72 md:h-96"
+              className="rounded-md object-cover w-full h-56 md:h-80"
             />
           ) : (
-            <div className="rounded-md w-full h-72 md:h-96 bg-gradient-to-br from-fuchsia-600/30 via-violet-500/20 to-cyan-400/20 border border-white/10 flex items-end p-6">
-              <div>
-                <p className="text-sm uppercase tracking-[0.3em] text-white/60">Project</p>
-                <h3 className="text-3xl md:text-4xl font-extrabold text-white">{title}</h3>
+            <div className="rounded-md w-full h-40 md:h-52 bg-gradient-to-br from-fuchsia-600/30 via-violet-500/20 to-cyan-400/20 border border-white/10 flex items-end p-4">
+              <div className="text-left">
+                {title == "Towards Universal Semantics w/ LLMs" ? (
+                  <p className="text-xs uppercase tracking-[0.3em] text-white/60">Research Paper</p>
+                ) : (
+                  <p className="text-xs uppercase tracking-[0.3em] text-white/60">Project</p>
+                )}
+                <h3 className="text-lg md:text-xl font-extrabold text-white">{title}</h3>
               </div>
             </div>
           )}
         </CardHeader>
-        <CardContent className="flex flex-col gap-1">
-          <CardTitle className="text-3xl md:text-4xl font-extrabold text-white">{title}</CardTitle>
-          <CardDescription className="mb-2 text-white text-xl text-gray-200">{description}</CardDescription>
-          <div className="flex flex-wrap gap-3 mt-2">
+        <CardContent className="flex flex-col gap-1 px-3 pb-3">
+          <CardTitle className="text-lg md:text-xl font-extrabold text-white">{title}</CardTitle>
+          <CardDescription className="mb-1.5 text-white text-xs text-gray-200">{description}</CardDescription>
+          <div className="flex flex-wrap gap-1.5 mt-1">
             {technologies.map((tech) => (
-              <div key={tech} className="mr-2 flex text-md gap-2">
-               <TechBlock icon={tech} name={tech} />
+              <div key={tech} className="flex text-xs gap-1">
+               <TechBlock icon={tech} name={tech} size="sm" />
               </div>
             ))}
           </div>
