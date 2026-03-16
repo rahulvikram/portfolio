@@ -18,8 +18,8 @@ function App() {
       <Landing />
       <About />
       <Work />
-      <Skills />
       <Projects />
+      <Skills />
       <Contact />
     </>
   )

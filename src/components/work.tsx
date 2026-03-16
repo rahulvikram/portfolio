@@ -14,7 +14,7 @@ const experiences = [
       link: "https://cass.oregonstate.edu/",
       logo: osu,
       description:
-        "Built a full-stack Scholarship Management System for the OSU Foundation using React, TypeScript, and .NET 8, with a microservices architecture that streamlined scholarship administration. Developed secure APIs with ASP.NET, C#, Entity Framework, and Azure SQL, integrating Entra ID, JWT, and Key Vault for authentication. Achieved 98% test coverage with Cypress and automated build, test, and deployment pipelines in Azure DevOps. Also led migration of an iOS seed analysis app to Swift 6, modernizing APIs and adopting async/await for better maintainability.",
+        "Developing scholarship administration system for OSU Foundation, leading Swift 6 migration of iOS seed analysis app, and modernizing Docker deployment workflows for an energy research platform.",
       technologies: ["React", "TypeScript", "C#", "SQL Server", "EF Core", "ASP.NET", "Azure", "Docker", "Cypress", "Git", "GitHub", "Azure DevOps", "Swift", "Xcode"],
     },
     {
@@ -24,8 +24,8 @@ const experiences = [
       link: "https://odot.oregon.gov/",
       logo: odot,
       description:
-        "Led migration of a legacy .NET MVC variable speed reporter app to a modern .NET 8 ASP.NET Core solution, adopting domain models, dependency injection, and config patterns for improved maintainability. Integrated the ODOT Message Query API with a Refit REST client using the repository pattern, and built a GitHub Actions CI/CD pipeline to automate testing and deployment. Developed C# LINQ extensions, refactored Razor views, and implemented a recursive parent-child ordering algorithm for corridors, segments, and signs to ensure consistent data rendering.",
-      technologies: ["C#", ".NET", "Git", "Azure DevOps" ],
+        "Upgrading VSL platform features, refactoring Vue.js & Razor views, and writing SQL migration scripts to automate ETL pipeline workflows for TOCS maintenance.",
+      technologies: ["React", "TypeScript", "Vue", "C#", ".NET", "Git", "MySQL", "SQL Server", "Azure DevOps" ],
     },
     {
       title: "Applied AI Research Intern",
@@ -34,7 +34,7 @@ const experiences = [
       link: "https://web.engr.oregonstate.edu/~chenliz/research.html",
       logo: osucoe,
       description:
-        "Helped write a NeurIPS 2025 paper on NLP research using LLMs to generate Natural Semantic Metalanguage (NSM) explications, advancing cross-linguistic semantic representation. Fine-tuned PyTorch-based LLMs on specialized datasets to produce accurate, universally translatable outputs that outperformed GPT-4o benchmarks. Built evaluation metrics and Python scripts with NLTK to validate over 1M words of semantic outputs against NSM filters, ensuring accuracy and reproducibility.",
+        "Collaborated with PhD researchers in an AI accelerator lab to develop fine-tuned LLMs for generative NLP and NSM explication, building Python validation pipelines to analyze 1M+ word datasets.",
       technologies: ["Python", "PyTorch", ],
     },
 ]
@@ -48,7 +48,7 @@ export function Work() {
             </div>
             <div className="relative max-w-4xl mx-auto">
                 {/* Vertical Timeline Line */}
-                <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#FF0080] via-[#7928CA] via-60% to-[#0070F3] to-90% hidden md:block" style={{ backgroundImage: "linear-gradient(to bottom, #0070F3 66%, #38bdf8 100%)" }} />
+                <div className="absolute left-[1.72rem] top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#FF0080] via-[#7928CA] via-60% to-[#0070F3] to-90% hidden md:block" style={{ backgroundImage: "linear-gradient(to bottom, #0070F3 66%, #38bdf8 100%)" }} />
                 <div className="space-y-8">
                     {experiences.map((exp, index) => (
                         <div key={index} className="relative flex items-start gap-6">
@@ -69,7 +69,7 @@ export function Work() {
 
                             {/* Card Content */}
                             <div className="flex-1">
-                                <Card className="p-5 bg-black/80 hover:shadow-lg transition-all hover:translate-x-2 duration-300">
+                                <Card className="p-5 !py-5 !gap-2 bg-black/80 hover:shadow-lg transition-all hover:translate-x-2 duration-300">
                                     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
                                         <div className="flex items-center gap-3">
                                             {/* Company Logo */}

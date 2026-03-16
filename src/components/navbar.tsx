@@ -22,12 +22,12 @@ export function Navbar() {
       href: "#my-work"
     },
     {
-      name: "Skills",
-      href: "#skills"
-    },
-    {
       name: "Projects",
       href: "#projects"
+    },
+    {
+      name: "Skills",
+      href: "#skills"
     },
     {
       name: "Contact",
