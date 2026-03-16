@@ -71,7 +71,7 @@ export function Contact() {
       <div id="contact" className="flex flex-col items-center justify-center mb-20">
         <div className="flex flex-row items-center justify-center">
           <AuroraText className="text-5xl font-black mr-3">Contact</AuroraText>
-          <span className="text-5xl font-black mr-2">Info</span>
+          <span className="text-5xl font-black mr-2">Me!</span>
         </div>
         <TooltipProvider>
           <Dock

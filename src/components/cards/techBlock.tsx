@@ -110,8 +110,8 @@ const iconMap: Record<string, React.ComponentType> = {
 export function TechBlock({ icon, name, size = "md" }: { icon: string, name: string, size?: "sm" | "md" }) {
     const IconComponent = iconMap[icon];
 
-    const iconPx = size === "sm" ? "0.9rem" : "1.6rem";
-    const textClass = size === "sm" ? "tech-block-name text-[0.65rem] leading-tight" : "tech-block-name";
+    const iconPx = size === "sm" ? "1.1rem" : "1.6rem";
+    const textClass = size === "sm" ? "tech-block-name text-[0.75rem] leading-tight" : "tech-block-name";
 
     return (
         <>
