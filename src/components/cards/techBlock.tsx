@@ -50,6 +50,12 @@ import {
     SiJupyter,
     SiXcode,
     SiGooglecolab,
+    SiDrizzle,
+    SiClerk,
+    SiSocketdotio,
+    SiZod,
+    SiTurborepo,
+    SiRoboflow
 } from '@icons-pack/react-simple-icons';
 
 // Create a mapping from icon name (string) to the respective icon component
@@ -104,7 +110,13 @@ const iconMap: Record<string, React.ComponentType> = {
     Docker: SiDocker,
     'Jupyter Notebook': SiJupyter,
     Jupyter: SiJupyter,
-    'Google Colab': SiGooglecolab
+    'Google Colab': SiGooglecolab,
+    'Drizzle ORM': SiDrizzle,
+    Clerk: SiClerk,
+    'Socket.IO': SiSocketdotio,
+    Zod: SiZod,
+    'Turborepo': SiTurborepo,
+    'Roboflow': SiRoboflow,
 };
 
 export function TechBlock({ icon, name, size = "md" }: { icon: string, name: string, size?: "sm" | "md" }) {

@@ -10,6 +10,7 @@ import packtrack from "../assets/project-photos/packtrack.jpg";
 import internshipscraper from "../assets/company-logos/github.png";
 import optimalwakefulness from "../assets/project-photos/optw.png";
 import rf from "../assets/project-photos/rf.png";
+import consensus from "../assets/project-photos/consensus.png";
 
 export function Projects() {
     return (
@@ -48,11 +49,18 @@ export function Projects() {
                     technologies={["Next.js", "React", "TypeScript", "Tailwind", "Magic UI", "Vercel", "Git"]}
                 />
                 <ProjectCard
-                    title="Leaflens.ai"
+                    title="LeafLens.AI"
                     description="An AI-powered tool that analyzes plant images and provides detailed insights about plant health, detected diseases, and recommended treatments. Powered by Google GenAI."
                     image={leaflens}
                     link="https://github.com/rahulvikram/doctor-plant"
                     technologies={["React", "Next.js", "TypeScript", "Tailwind", "AWS", "Shadcn UI", "Python", "Flask", "Firebase", "Gemini", "Git"]}
+                />
+                <ProjectCard
+                    title="Consensus"
+                    description="A real-time collaborative decision-making app powered by websockets, enabling users to vote on polls, see live results, and chat with participants."
+                    image={consensus}
+                    link="https://github.com/rahulvikram/consensus"
+                    technologies={["Next.js", "React", "TypeScript", "PostgreSQL", "Drizzle ORM", "Clerk", "Socket.IO", "Tailwind", "Zod", "Turborepo"]}
                 />
                 <ProjectCard
                     title="PackTrack (Work in Progress)"
@@ -66,7 +74,7 @@ export function Projects() {
                     description="A real-time road safety platform using Roboflow workflows, inference, and supervision libraries for object detection and annotated safety-zone monitoring."
                     image={rf}
                     link="https://github.com/rahulvikram/rf-safety"
-                    technologies={["React", "Tailwind CSS", "Python", "Flask", "Git"]}
+                    technologies={["React", "Tailwind", "Python", "Flask", "Roboflow", "Git"]}
                 />
                 <ProjectCard
                     title="Optimal Wakefulness"
