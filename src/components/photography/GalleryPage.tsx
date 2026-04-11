@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { locations } from "./data";
-import type { Photo } from "./data";
+import { locations } from "@/lib/photos";
+import type { Photo } from "@/lib/photos";
 import { ArrowLeft, Maximize2 } from "lucide-react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { PhotoModal } from "./PhotoModal";

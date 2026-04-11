@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import type { Photo } from "./data";
+import type { Photo } from "@/lib/photos";
 import { X, ChevronLeft, ChevronRight, Download } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { locations } from "./data";
+import { locations } from "@/lib/photos";
 import { motion } from "motion/react";
 
 export function FigmaHomePage() {
