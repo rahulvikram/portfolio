@@ -11,7 +11,7 @@ import { FigmaGalleryPage } from './components/photography/GalleryPage.tsx'
 import './index.css'
 
 // Initialize smooth scroll
-const lenis = new Lenis({
+new Lenis({
   duration: 1.5,
   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
   autoRaf: true,
