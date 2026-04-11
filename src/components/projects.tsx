@@ -60,7 +60,7 @@ export function Projects() {
                     description="A real-time collaborative decision-making app powered by websockets, enabling users to vote on polls, see live results, and chat with participants."
                     image={consensus}
                     link="https://github.com/rahulvikram/consensus"
-                    technologies={["Next.js", "React", "TypeScript", "PostgreSQL", "Drizzle ORM", "Clerk", "Socket.IO", "Tailwind", "Zod", "Turborepo"]}
+                    technologies={["Next.js", "TypeScript", "PostgreSQL", "Drizzle ORM", "Clerk", "Socket.IO", "Tailwind", "Zod", "Turborepo"]}
                 />
                 <ProjectCard
                     title="PackTrack (Work in Progress)"
@@ -77,7 +77,7 @@ export function Projects() {
                     technologies={["React", "Tailwind", "Python", "Flask", "Roboflow", "Git"]}
                 />
                 <ProjectCard
-                    title="Optimal Wakefulness"
+                    title="Watch Your Sleep"
                     description="A Swift-based Apple Watch app that uses real-time sleep and motion data to wake users at an optimal point in their sleep cycle."
                     image={optimalwakefulness}
                     link="https://github.com/Carson274/Optimal-Wakefulness/"

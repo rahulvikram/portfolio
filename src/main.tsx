@@ -1,10 +1,13 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import { SmoothCursor } from './components/ui/smooth-cursor.tsx'
 import Lenis from 'lenis'
 
 import App from './App.tsx'
+import { FigmaShowcaseLayout } from './components/photography/Layout.tsx'
+import { FigmaHomePage } from './components/photography/HomePage.tsx'
+import { FigmaGalleryPage } from './components/photography/GalleryPage.tsx'
 import './index.css'
 
 const lenis = new Lenis({
@@ -17,13 +20,28 @@ lenis.on('scroll', (e) => {
   console.log(e)
 })
 
+function AppRoutes() {
+  const location = useLocation()
+  const isFigmaShowcaseRoute = location.pathname.startsWith('/photography')
+
+  return (
+    <>
+      {!isFigmaShowcaseRoute && <SmoothCursor />}
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/photography" element={<FigmaShowcaseLayout />}>
+          <Route index element={<FigmaHomePage />} />
+          <Route path="location/:id" element={<FigmaGalleryPage />} />
+        </Route>
+      </Routes>
+    </>
+  )
+}
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
-      <SmoothCursor />
-      <Routes>
-        <Route path="/" element={<App />} />
-      </Routes>
+      <AppRoutes />
     </BrowserRouter>
   </StrictMode>,
 )

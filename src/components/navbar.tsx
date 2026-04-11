@@ -1,7 +1,7 @@
 "use client"
 
 import { Link } from "react-router-dom"
-import { useState, useEffect } from "react"
+import { useState, useEffect, type MouseEvent } from "react"
 import { AuroraText } from "@/components/ui/aurora-text"
 import { ScrollProgress } from "@/components/ui/scroll-progress"
 import Resume from "../assets/Resume.pdf"
@@ -11,7 +11,6 @@ export function Navbar() {
   const [isAtTop, setIsAtTop] = useState(true)
   const [showNavText, setShowNavText] = useState(false)
 
- 
   const navFields = [
     {
       name: "About Me",
@@ -38,6 +37,10 @@ export function Navbar() {
       href: Resume,
       target: "_blank",
       rel: "noopener noreferrer"
+    },
+    {
+      name: "Photography",
+      href: "/photography",
     }
   ]
 
@@ -59,6 +62,26 @@ export function Navbar() {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])
+
+  const handleNavClick = (
+    e: MouseEvent<HTMLAnchorElement>,
+    href: string,
+    closeMobileMenu = false
+  ) => {
+    if (closeMobileMenu) {
+      setIsOpen(false)
+    }
+
+    if (!href.startsWith("#")) {
+      return
+    }
+
+    e.preventDefault()
+    const section = document.querySelector(href)
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" })
+    }
+  }
 
   return (
     <>
@@ -99,21 +122,9 @@ export function Navbar() {
                 <Link
                   to={field.href}
                   key={field.name}
-                  onClick={e => {
-                    e.preventDefault();
-                    if (field.name === "More") {
-                      window.location.href = field.href;
-                      return;
-                    }
-                    if (field.name === "Resume") {
-                      window.open(field.href, "_blank");
-                      return;
-                    }
-                    const section = document.querySelector(field.href);
-                    if (section) {
-                      section.scrollIntoView({ behavior: "smooth" });
-                    }
-                  }}
+                  target={field.target}
+                  rel={field.rel}
+                  onClick={(e) => handleNavClick(e, field.href)}
                   className={`transition-all duration-500 ease-out ${
                     showNavText 
                       ? 'opacity-100 transform translate-y-0' 
@@ -139,20 +150,15 @@ export function Navbar() {
                   <Link
                     key={field.name}
                     to={field.href}
+                    target={field.target}
+                    rel={field.rel}
                     className={`text-sm text-white hover:text-gray-300 transition-all duration-300 ease-out ${
                       showNavText 
                         ? 'opacity-100 transform translate-x-0' 
                         : 'opacity-0 transform -translate-x-4'
                     }`}
                     style={{ transitionDelay: `${index * 50}ms` }}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setIsOpen(false);
-                      const section = document.querySelector(field.href);
-                      if (section) {
-                        section.scrollIntoView({ behavior: "smooth" });
-                      }
-                    }}
+                    onClick={(e) => handleNavClick(e, field.href, true)}
                   >
                     {field.name}
                   </Link>
