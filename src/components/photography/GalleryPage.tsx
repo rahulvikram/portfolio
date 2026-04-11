@@ -39,7 +39,7 @@ export function FigmaGalleryPage() {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className="flex-1 w-full max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-24"
     >
-      <header className="mb-12 md:mb-20 flex flex-col gap-6">
+      <header className="mb-10   flex flex-col gap-6">
         <div className="text-left">
           <button
             onClick={() => navigate("/photography")}
