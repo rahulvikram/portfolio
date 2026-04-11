@@ -48,7 +48,7 @@ export function FigmaGalleryPage() {
             <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
             <span className="text-sm uppercase tracking-widest font-medium">Back to collections</span>
           </button>
-          <h1 className="text-4xl md:text-5xl font-light tracking-tight text-zinc-900 text-left">
+          <h1 className="text-4xl mt-14 md:text-5xl font-light tracking-tight text-zinc-900 text-left">
             {location.name}
           </h1>
           <p className="text-zinc-500 mt-2 font-light text-left">

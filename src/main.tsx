@@ -10,15 +10,12 @@ import { FigmaHomePage } from './components/photography/HomePage.tsx'
 import { FigmaGalleryPage } from './components/photography/GalleryPage.tsx'
 import './index.css'
 
+// Initialize smooth scroll
 const lenis = new Lenis({
-  duration: 1.2,
+  duration: 1.5,
   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
   autoRaf: true,
 });
-
-lenis.on('scroll', (e) => {
-  console.log(e)
-})
 
 function AppRoutes() {
   const location = useLocation()

@@ -13,7 +13,7 @@ export function PhotoModal({ photos, initialIndex, onClose }: PhotoModalProps) {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
 
   const currentPhoto = photos[currentIndex];
-
+  console.log(currentPhoto.camera)
   const handleNext = useCallback(() => {
     setCurrentIndex((prev) => (prev === photos.length - 1 ? 0 : prev + 1));
   }, [photos.length]);
@@ -88,7 +88,7 @@ export function PhotoModal({ photos, initialIndex, onClose }: PhotoModalProps) {
             transition={{ duration: 0.3, ease: "easeInOut" }}
             src={currentPhoto.url}
             alt={currentPhoto.alt}
-            className="max-h-[60vh] w-auto object-contain rounded-xl"
+            className="max-h-[60vh] w-auto object-contain"
           />
         </AnimatePresence>
 
