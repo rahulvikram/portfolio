@@ -2,6 +2,7 @@
 
 import { Link } from "react-router-dom"
 import { useState, useEffect, type MouseEvent } from "react"
+import { Menu, X } from "lucide-react"
 import { AuroraText } from "@/components/ui/aurora-text"
 import { ScrollProgress } from "@/components/ui/scroll-progress"
 import Resume from "../assets/Resume.pdf"
@@ -88,7 +89,7 @@ export function Navbar() {
       <ScrollProgress className="top-[65px] z-50" />
       <nav 
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
-          isAtTop 
+          isAtTop && !isOpen
             ? 'bg-transparent' 
             : 'backdrop-blur-sm border-b border-gray-800 shadow-lg'
         }`}
@@ -138,6 +139,16 @@ export function Navbar() {
                 </Link>
               ))}
             </div>
+
+            <button
+              type="button"
+              aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isOpen}
+              onClick={() => setIsOpen((prev) => !prev)}
+              className="md:hidden flex h-10 w-10 items-center justify-center rounded-full text-white transition-colors"
+            >
+              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
           </div>
 
           {/* Mobile Navigation */}
@@ -152,11 +163,7 @@ export function Navbar() {
                     to={field.href}
                     target={field.target}
                     rel={field.rel}
-                    className={`text-sm text-white hover:text-gray-300 transition-all duration-300 ease-out ${
-                      showNavText 
-                        ? 'opacity-100 transform translate-x-0' 
-                        : 'opacity-0 transform -translate-x-4'
-                    }`}
+                    className="text-sm text-white hover:text-gray-300 transition-all duration-300 ease-out opacity-100 translate-x-0"
                     style={{ transitionDelay: `${index * 50}ms` }}
                     onClick={(e) => handleNavClick(e, field.href, true)}
                   >
