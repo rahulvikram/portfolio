@@ -11,6 +11,7 @@ import internshipscraper from "../assets/company-logos/github.png";
 import optimalwakefulness from "../assets/project-photos/optw.png";
 import rf from "../assets/project-photos/rf.png";
 import consensus from "../assets/project-photos/consensus.png";
+import brainch from "../assets/project-photos/brainch.png";
 
 export function Projects() {
     return (
@@ -61,6 +62,13 @@ export function Projects() {
                     image={consensus}
                     link="https://github.com/rahulvikram/consensus"
                     technologies={["Next.js", "TypeScript", "PostgreSQL", "Drizzle ORM", "Clerk", "Socket.IO", "Tailwind", "Zod", "Turborepo"]}
+                />
+                <ProjectCard
+                    title="br[AI]nch"
+                    description="Deployed AI chat interface where every conversation is a tree node. Fork any message into its own subtopic branch, then jump back."
+                    image={brainch}
+                    link="https://brainch.vercel.app/"
+                    technologies={["React", "TypeScript", "React Flow", "Tailwind", "Express", "OpenAI", "Vite", "Vercel", "Git"]}
                 />
                 <ProjectCard
                     title="PackTrack (Work in Progress)"

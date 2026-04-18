@@ -17,9 +17,11 @@ import {
     SiTypescript, 
     SiC, 
     SiCplusplus, 
+    SiOpenai,
     SiHtml5, 
     SiCss,
     SiShadcnui,
+    SiXyflow,
     SiRadixui,
     SiGooglegemini,
     SiMagic,
@@ -55,7 +57,7 @@ import {
     SiSocketdotio,
     SiZod,
     SiTurborepo,
-    SiRoboflow
+    SiRoboflow,
 } from '@icons-pack/react-simple-icons';
 
 // Create a mapping from icon name (string) to the respective icon component
@@ -88,6 +90,7 @@ const iconMap: Record<string, React.ComponentType> = {
     'Radix UI': SiRadixui,
     'Magic UI': SiMagic,
     'Gemini': SiGooglegemini,
+    OpenAI: SiOpenai,
     Xcode: SiXcode,
     // Cloud & Services
     Vercel: SiVercel,
@@ -117,6 +120,7 @@ const iconMap: Record<string, React.ComponentType> = {
     Zod: SiZod,
     'Turborepo': SiTurborepo,
     'Roboflow': SiRoboflow,
+    'React Flow': SiXyflow,
 };
 
 export function TechBlock({ icon, name, size = "md" }: { icon: string, name: string, size?: "sm" | "md" }) {
