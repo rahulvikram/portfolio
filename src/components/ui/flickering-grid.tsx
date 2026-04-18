@@ -11,6 +11,8 @@ interface FlickeringGridProps extends React.HTMLAttributes<HTMLDivElement> {
   height?: number
   className?: string
   maxOpacity?: number
+  /** Cap the internal animation frame rate to reduce CPU usage (default 30fps). */
+  targetFps?: number
 }
 
 export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
@@ -22,11 +24,13 @@ export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
   height,
   className,
   maxOpacity = 0.3,
+  targetFps = 30,
   ...props
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
-  const [isInView, setIsInView] = useState(false)
+  const isInViewRef = useRef(false)
+  const [, setIsInView] = useState(false)
   const [canvasSize, setCanvasSize] = useState({ width: 0, height: 0 })
 
   const memoizedColor = useMemo(() => {
@@ -48,7 +52,7 @@ export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
 
   const setupCanvas = useCallback(
     (canvas: HTMLCanvasElement, width: number, height: number) => {
-      const dpr = window.devicePixelRatio || 1
+      const dpr = Math.min(window.devicePixelRatio || 1, 2)
       canvas.width = width * dpr
       canvas.height = height * dpr
       canvas.style.width = `${width}px`
@@ -68,8 +72,9 @@ export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
 
   const updateSquares = useCallback(
     (squares: Float32Array, deltaTime: number) => {
+      const threshold = flickerChance * deltaTime
       for (let i = 0; i < squares.length; i++) {
-        if (Math.random() < flickerChance * deltaTime) {
+        if (Math.random() < threshold) {
           squares[i] = Math.random() * maxOpacity
         }
       }
@@ -88,19 +93,15 @@ export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
       dpr: number
     ) => {
       ctx.clearRect(0, 0, width, height)
-      ctx.fillStyle = "transparent"
-      ctx.fillRect(0, 0, width, height)
 
+      const stride = (squareSize + gridGap) * dpr
+      const size = squareSize * dpr
       for (let i = 0; i < cols; i++) {
+        const x = i * stride
         for (let j = 0; j < rows; j++) {
           const opacity = squares[i * rows + j]
           ctx.fillStyle = `${memoizedColor}${opacity})`
-          ctx.fillRect(
-            i * (squareSize + gridGap) * dpr,
-            j * (squareSize + gridGap) * dpr,
-            squareSize * dpr,
-            squareSize * dpr
-          )
+          ctx.fillRect(x, j * stride, size, size)
         }
       }
     },
@@ -115,8 +116,9 @@ export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
     const ctx = canvas.getContext("2d")
     if (!ctx) return
 
-    let animationFrameId: number
+    let animationFrameId: number | null = null
     let gridParams: ReturnType<typeof setupCanvas>
+    const frameInterval = 1000 / Math.max(1, targetFps)
 
     const updateCanvasSize = () => {
       const newWidth = width || container.clientWidth
@@ -127,51 +129,74 @@ export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
 
     updateCanvasSize()
 
-    let lastTime = 0
+    let lastFrame = 0
     const animate = (time: number) => {
-      if (!isInView) return
-
-      const deltaTime = (time - lastTime) / 1000
-      lastTime = time
-
-      updateSquares(gridParams.squares, deltaTime)
-      drawGrid(
-        ctx,
-        canvas.width,
-        canvas.height,
-        gridParams.cols,
-        gridParams.rows,
-        gridParams.squares,
-        gridParams.dpr
-      )
+      if (!isInViewRef.current) {
+        animationFrameId = null
+        return
+      }
+      const elapsed = time - lastFrame
+      if (elapsed >= frameInterval) {
+        const deltaSeconds = elapsed / 1000
+        lastFrame = time
+        updateSquares(gridParams.squares, deltaSeconds)
+        drawGrid(
+          ctx,
+          canvas.width,
+          canvas.height,
+          gridParams.cols,
+          gridParams.rows,
+          gridParams.squares,
+          gridParams.dpr
+        )
+      }
       animationFrameId = requestAnimationFrame(animate)
+    }
+
+    const startAnimation = () => {
+      if (animationFrameId == null) {
+        lastFrame = performance.now()
+        animationFrameId = requestAnimationFrame(animate)
+      }
+    }
+
+    const stopAnimation = () => {
+      if (animationFrameId != null) {
+        cancelAnimationFrame(animationFrameId)
+        animationFrameId = null
+      }
     }
 
     const resizeObserver = new ResizeObserver(() => {
       updateCanvasSize()
     })
-
     resizeObserver.observe(container)
 
     const intersectionObserver = new IntersectionObserver(
       ([entry]) => {
-        setIsInView(entry.isIntersecting)
+        const visible = entry.isIntersecting
+        isInViewRef.current = visible
+        setIsInView(visible)
+        if (visible && !document.hidden) startAnimation()
+        else stopAnimation()
       },
       { threshold: 0 }
     )
-
     intersectionObserver.observe(canvas)
 
-    if (isInView) {
-      animationFrameId = requestAnimationFrame(animate)
+    const handleVisibility = () => {
+      if (document.hidden) stopAnimation()
+      else if (isInViewRef.current) startAnimation()
     }
+    document.addEventListener("visibilitychange", handleVisibility)
 
     return () => {
-      cancelAnimationFrame(animationFrameId)
+      stopAnimation()
       resizeObserver.disconnect()
       intersectionObserver.disconnect()
+      document.removeEventListener("visibilitychange", handleVisibility)
     }
-  }, [setupCanvas, updateSquares, drawGrid, width, height, isInView])
+  }, [setupCanvas, updateSquares, drawGrid, width, height, targetFps])
 
   return (
     <div

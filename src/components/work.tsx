@@ -78,6 +78,8 @@ export function Work() {
                                                     <img
                                                         src={exp.logo}
                                                         alt={`${exp.company} logo`}
+                                                        loading="lazy"
+                                                        decoding="async"
                                                         className="w-11 h-11 object-cover"
                                                         />
                                                 </div>

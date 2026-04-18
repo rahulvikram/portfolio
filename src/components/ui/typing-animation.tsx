@@ -3,6 +3,16 @@ import { motion, type MotionProps, useInView } from "motion/react"
 
 import { cn } from "@/lib/utils"
 
+const typingMotionCache = new Map<React.ElementType, ReturnType<typeof motion.create>>()
+const getTypingMotionComponent = (Component: React.ElementType) => {
+  let cached = typingMotionCache.get(Component)
+  if (!cached) {
+    cached = motion.create(Component, { forwardMotionProps: true })
+    typingMotionCache.set(Component, cached)
+  }
+  return cached
+}
+
 interface TypingAnimationProps extends MotionProps {
   children?: string
   words?: string[]
@@ -37,9 +47,7 @@ export function TypingAnimation({
   cursorStyle = "line",
   ...props
 }: TypingAnimationProps) {
-  const MotionComponent = motion.create(Component, {
-    forwardMotionProps: true,
-  })
+  const MotionComponent = getTypingMotionComponent(Component)
 
   const [displayedText, setDisplayedText] = useState<string>("")
   const [currentWordIndex, setCurrentWordIndex] = useState(0)

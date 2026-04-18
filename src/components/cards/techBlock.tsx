@@ -158,6 +158,8 @@ export function TechBlock({ icon, name, size = "md" }: { icon: string, name: str
 
                             }
                             alt={icon}
+                            loading="lazy"
+                            decoding="async"
                             style={{ display: "block", width: iconPx, height: iconPx, objectFit: "contain" }}
                         />
                     </div>

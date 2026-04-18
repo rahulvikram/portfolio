@@ -89,7 +89,7 @@ export function SmoothCursor({
 }: SmoothCursorProps) {
   const lastMousePos = useRef<Position>({ x: 0, y: 0 })
   const velocity = useRef<Position>({ x: 0, y: 0 })
-  const lastUpdateTime = useRef(Date.now())
+  const lastUpdateTime = useRef(performance.now())
   const previousAngle = useRef(0)
   const accumulatedRotation = useRef(0)
 
@@ -107,37 +107,34 @@ export function SmoothCursor({
   })
 
   useEffect(() => {
-    const updateVelocity = (currentPos: Position) => {
-      const currentTime = Date.now()
-      const deltaTime = currentTime - lastUpdateTime.current
+    // Skip entirely on touch-primary devices.
+    if (window.matchMedia("(pointer: coarse)").matches) return
+
+    let rafId = 0
+    let pendingEvent: MouseEvent | null = null
+    let resetScaleTimeout: ReturnType<typeof setTimeout> | null = null
+
+    const processMove = (e: MouseEvent) => {
+      const now = performance.now()
+      const deltaTime = now - lastUpdateTime.current
 
       if (deltaTime > 0) {
-        velocity.current = {
-          x: (currentPos.x - lastMousePos.current.x) / deltaTime,
-          y: (currentPos.y - lastMousePos.current.y) / deltaTime,
-        }
+        velocity.current.x = (e.clientX - lastMousePos.current.x) / deltaTime
+        velocity.current.y = (e.clientY - lastMousePos.current.y) / deltaTime
       }
+      lastUpdateTime.current = now
+      lastMousePos.current.x = e.clientX
+      lastMousePos.current.y = e.clientY
 
-      lastUpdateTime.current = currentTime
-      lastMousePos.current = currentPos
-    }
+      cursorX.set(e.clientX)
+      cursorY.set(e.clientY)
 
-    const smoothMouseMove = (e: MouseEvent) => {
-      const currentPos = { x: e.clientX, y: e.clientY }
-      updateVelocity(currentPos)
-
-      const speed = Math.sqrt(
-        Math.pow(velocity.current.x, 2) + Math.pow(velocity.current.y, 2)
-      )
-
-      cursorX.set(currentPos.x)
-      cursorY.set(currentPos.y)
+      const vx = velocity.current.x
+      const vy = velocity.current.y
+      const speed = Math.sqrt(vx * vx + vy * vy)
 
       if (speed > 0.1) {
-        const currentAngle =
-          Math.atan2(velocity.current.y, velocity.current.x) * (180 / Math.PI) +
-          90
-
+        const currentAngle = Math.atan2(vy, vx) * (180 / Math.PI) + 90
         let angleDiff = currentAngle - previousAngle.current
         if (angleDiff > 180) angleDiff -= 360
         if (angleDiff < -180) angleDiff += 360
@@ -146,32 +143,35 @@ export function SmoothCursor({
         previousAngle.current = currentAngle
 
         scale.set(0.95)
-
-        const timeout = setTimeout(() => {
+        if (resetScaleTimeout) clearTimeout(resetScaleTimeout)
+        resetScaleTimeout = setTimeout(() => {
           scale.set(1)
+          resetScaleTimeout = null
         }, 150)
-
-        return () => clearTimeout(timeout)
       }
     }
 
-    let rafId: number
-    const throttledMouseMove = (e: MouseEvent) => {
+    const onMouseMove = (e: MouseEvent) => {
+      pendingEvent = e
       if (rafId) return
-
       rafId = requestAnimationFrame(() => {
-        smoothMouseMove(e)
         rafId = 0
+        if (pendingEvent) {
+          const event = pendingEvent
+          pendingEvent = null
+          processMove(event)
+        }
       })
     }
 
     document.body.style.cursor = "none"
-    window.addEventListener("mousemove", throttledMouseMove)
+    window.addEventListener("mousemove", onMouseMove, { passive: true })
 
     return () => {
-      window.removeEventListener("mousemove", throttledMouseMove)
+      window.removeEventListener("mousemove", onMouseMove)
       document.body.style.cursor = "auto"
       if (rafId) cancelAnimationFrame(rafId)
+      if (resetScaleTimeout) clearTimeout(resetScaleTimeout)
     }
   }, [cursorX, cursorY, rotation, scale])
 
@@ -179,8 +179,10 @@ export function SmoothCursor({
     <motion.div
       style={{
         position: "fixed",
-        left: cursorX,
-        top: cursorY,
+        top: 0,
+        left: 0,
+        x: cursorX,
+        y: cursorY,
         translateX: "-50%",
         translateY: "-50%",
         rotate: rotation,

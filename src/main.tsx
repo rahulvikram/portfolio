@@ -1,36 +1,70 @@
-import { StrictMode } from 'react'
+import { StrictMode, Suspense, lazy, useEffect, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import { SmoothCursor } from './components/ui/smooth-cursor.tsx'
-import Lenis from 'lenis'
 
 import App from './App.tsx'
-import { FigmaShowcaseLayout } from './components/photography/Layout.tsx'
-import { FigmaHomePage } from './components/photography/HomePage.tsx'
-import { FigmaGalleryPage } from './components/photography/GalleryPage.tsx'
 import './index.css'
 
-// Initialize smooth scroll
-new Lenis({
-  duration: 1.5,
-  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-  autoRaf: true,
-});
+const FigmaShowcaseLayout = lazy(() =>
+  import('./components/photography/Layout.tsx').then((m) => ({ default: m.FigmaShowcaseLayout })),
+)
+const FigmaHomePage = lazy(() =>
+  import('./components/photography/HomePage.tsx').then((m) => ({ default: m.FigmaHomePage })),
+)
+const FigmaGalleryPage = lazy(() =>
+  import('./components/photography/GalleryPage.tsx').then((m) => ({ default: m.FigmaGalleryPage })),
+)
+
+function useLenis(enabled: boolean) {
+  useEffect(() => {
+    if (!enabled) return
+    let cancelled = false
+    let lenis: { destroy: () => void } | null = null
+    import('lenis').then(({ default: Lenis }) => {
+      if (cancelled) return
+      lenis = new Lenis({
+        duration: 0.9,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        autoRaf: true,
+      })
+    })
+    return () => {
+      cancelled = true
+      lenis?.destroy()
+    }
+  }, [enabled])
+}
 
 function AppRoutes() {
   const location = useLocation()
-  const isFigmaShowcaseRoute = location.pathname.startsWith('/photography')
+  const isPhotographyRoute = location.pathname.startsWith('/photography')
+  const [isCoarsePointer, setIsCoarsePointer] = useState(false)
+
+  useEffect(() => {
+    const mql = window.matchMedia('(pointer: coarse)')
+    const update = () => setIsCoarsePointer(mql.matches)
+    update()
+    mql.addEventListener?.('change', update)
+    return () => mql.removeEventListener?.('change', update)
+  }, [])
+
+  useLenis(!isPhotographyRoute && !isCoarsePointer)
+
+  const showCursor = !isPhotographyRoute && !isCoarsePointer
 
   return (
     <>
-      {!isFigmaShowcaseRoute && <SmoothCursor />}
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/photography" element={<FigmaShowcaseLayout />}>
-          <Route index element={<FigmaHomePage />} />
-          <Route path="location/:id" element={<FigmaGalleryPage />} />
-        </Route>
-      </Routes>
+      {showCursor && <SmoothCursor />}
+      <Suspense fallback={null}>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/photography" element={<FigmaShowcaseLayout />}>
+            <Route index element={<FigmaHomePage />} />
+            <Route path="location/:id" element={<FigmaGalleryPage />} />
+          </Route>
+        </Routes>
+      </Suspense>
     </>
   )
 }

@@ -30,7 +30,8 @@ export function ProjectCard({
       <Card
         className={`project-card relative bg-black/80 w-md max-w-md border-b border-gray-700 shadow-lg ease-in-out transition-transform transition-colors duration-1000 !py-2 !px-2 !gap-0 ${
           isClickable
-            ? "cursor-pointer hover:[background:linear-gradient(135deg,var(--palette-pink)_0%,var(--palette-purple)_33%,var(--palette-blue)_66%,var(--palette-cyan)_100%)]"
+            ? "cursor-pointer hover:bg-gray-900 transition-colors duration-100"
+       
             : "cursor-default"
         }`}
         style={{
@@ -42,6 +43,8 @@ export function ProjectCard({
             <img
               src={image}
               alt={title}
+              loading="lazy"
+              decoding="async"
               className="rounded-md object-cover w-full h-56 md:h-80"
             />
           ) : (

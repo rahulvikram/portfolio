@@ -3,6 +3,16 @@ import { AnimatePresence, motion, type MotionProps, type Variants } from "motion
 
 import { cn } from "@/lib/utils"
 
+const motionComponentCache = new Map<ElementType, ReturnType<typeof motion.create>>()
+const getMotionComponent = (Component: ElementType) => {
+  let cached = motionComponentCache.get(Component)
+  if (!cached) {
+    cached = motion.create(Component)
+    motionComponentCache.set(Component, cached)
+  }
+  return cached
+}
+
 type AnimationType = "text" | "word" | "character" | "line"
 type AnimationVariant =
   | "fadeIn"
@@ -320,7 +330,7 @@ const TextAnimateBase = ({
   renderSegment,
   ...props
 }: TextAnimateProps) => {
-  const MotionComponent = motion.create(Component)
+  const MotionComponent = getMotionComponent(Component)
 
   let segments: string[] | undefined = []
   switch (by) {

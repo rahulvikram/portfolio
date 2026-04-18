@@ -43,6 +43,8 @@ export function ColorTechBlock({ icon, name }: { icon: string, name: string }) {
 
                                 }
                                 alt={icon}
+                                loading="lazy"
+                                decoding="async"
                                 style={{ display: "block", width: "3rem", height: "3rem", objectFit: "contain" }}
                             />
                 </div>

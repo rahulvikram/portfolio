@@ -22,6 +22,8 @@ export function About(){
                     alt="Me"
                     width={450}
                     height={450}
+                    loading="lazy"
+                    decoding="async"
                     className="rounded-lg object-cover"
                 />
               </div>
