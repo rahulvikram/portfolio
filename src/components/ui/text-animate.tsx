@@ -3,11 +3,13 @@ import { AnimatePresence, motion, type MotionProps, type Variants } from "motion
 
 import { cn } from "@/lib/utils"
 
-const motionComponentCache = new Map<ElementType, ReturnType<typeof motion.create>>()
-const getMotionComponent = (Component: ElementType) => {
+type AnyMotionComponent = React.ComponentType<Record<string, unknown>>
+
+const motionComponentCache = new Map<ElementType, AnyMotionComponent>()
+const getMotionComponent = (Component: ElementType): AnyMotionComponent => {
   let cached = motionComponentCache.get(Component)
   if (!cached) {
-    cached = motion.create(Component)
+    cached = motion.create(Component) as unknown as AnyMotionComponent
     motionComponentCache.set(Component, cached)
   }
   return cached

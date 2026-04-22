@@ -3,11 +3,13 @@ import { motion, type MotionProps, useInView } from "motion/react"
 
 import { cn } from "@/lib/utils"
 
-const typingMotionCache = new Map<React.ElementType, ReturnType<typeof motion.create>>()
-const getTypingMotionComponent = (Component: React.ElementType) => {
+type AnyMotionComponent = React.ComponentType<Record<string, unknown>>
+
+const typingMotionCache = new Map<React.ElementType, AnyMotionComponent>()
+const getTypingMotionComponent = (Component: React.ElementType): AnyMotionComponent => {
   let cached = typingMotionCache.get(Component)
   if (!cached) {
-    cached = motion.create(Component, { forwardMotionProps: true })
+    cached = motion.create(Component, { forwardMotionProps: true }) as unknown as AnyMotionComponent
     typingMotionCache.set(Component, cached)
   }
   return cached
