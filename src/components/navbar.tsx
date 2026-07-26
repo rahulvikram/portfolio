@@ -4,9 +4,15 @@ import { Link } from "react-router-dom"
 import { useState, type MouseEvent } from "react"
 import { Menu, X } from "lucide-react"
 import { ThemeToggle } from "@/components/theme-toggle"
-import Resume from "../assets/Resume.pdf"
 
-const navFields = [
+type NavField = {
+  name: string
+  href: string
+  target?: string
+  rel?: string
+}
+
+const navFields: NavField[] = [
   { name: "About", href: "#about-me" },
   { name: "Work", href: "#my-work" },
   { name: "Projects", href: "#projects" },

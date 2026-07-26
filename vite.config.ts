@@ -21,8 +21,11 @@ function folderToTitle(str: string): string {
     .toLowerCase()
 }
 
+// Accepts "name-YYYY", "name_YYYY", "name-YYYY-YYYY", "name_YYYY_YYYY", and
+// mixed separators like "name_YYYY-YYYY", since folder names get renamed by
+// hand and the separator convention isn't always consistent.
 function parseFolderName(folder: string): { name: string; year: string } {
-  const match = folder.match(/^(.*)_(\d{4})(?:-(\d{4}))?$/)
+  const match = folder.match(/^(.*?)[-_](\d{4})(?:[-_](\d{4}))?$/)
   if (!match) {
     return { name: folderToTitle(folder), year: '' }
   }
