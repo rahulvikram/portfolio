@@ -1,7 +1,6 @@
 import { StrictMode, Suspense, lazy, useEffect, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
-import { SmoothCursor } from './components/ui/smooth-cursor.tsx'
 
 import App from './App.tsx'
 import './index.css'
@@ -51,21 +50,16 @@ function AppRoutes() {
 
   useLenis(!isPhotographyRoute && !isCoarsePointer)
 
-  const showCursor = !isPhotographyRoute && !isCoarsePointer
-
   return (
-    <>
-      {showCursor && <SmoothCursor />}
-      <Suspense fallback={null}>
-        <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="/photography" element={<FigmaShowcaseLayout />}>
-            <Route index element={<FigmaHomePage />} />
-            <Route path="location/:id" element={<FigmaGalleryPage />} />
-          </Route>
-        </Routes>
-      </Suspense>
-    </>
+    <Suspense fallback={null}>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/photography" element={<FigmaShowcaseLayout />}>
+          <Route index element={<FigmaHomePage />} />
+          <Route path="location/:id" element={<FigmaGalleryPage />} />
+        </Route>
+      </Routes>
+    </Suspense>
   )
 }
 

@@ -1,21 +1,14 @@
 "use client"
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-import { TechBlock } from "./techBlock"
+import { TechTags } from "../tech-tags"
 
-type ProjectCardProps = {
+type ProjectCardProps = Readonly<{
   title: string
   description: string
   image?: string
   link: string
   technologies: string[]
-}
+}>
 
 export function ProjectCard({
   title,
@@ -24,59 +17,27 @@ export function ProjectCard({
   link,
   technologies,
 }: ProjectCardProps) {
-  const isClickable = Boolean(link)
-  const cardContent = (
+  const content = (
     <>
-      <Card
-        className={`project-card relative bg-black/80 w-md max-w-md border-b border-gray-700 shadow-lg ease-in-out transition-transform transition-colors duration-1000 !py-2 !px-2 !gap-0 ${
-          isClickable
-            ? "cursor-pointer hover:bg-gray-900 transition-colors duration-100"
-       
-            : "cursor-default"
-        }`}
-        style={{
-          transition: "background-color 0.5s ease-in, background 0.5s ease-in, transform 0.2s",
-        }}
-      >
-        <CardHeader className="p-3 pb-2">
-          {image ? (
-            <img
-              src={image}
-              alt={title}
-              loading="lazy"
-              decoding="async"
-              className="rounded-md object-cover w-full h-56 md:h-80"
-            />
-          ) : (
-            <div className="rounded-md w-full h-40 md:h-52 bg-gradient-to-br from-fuchsia-600/30 via-violet-500/20 to-cyan-400/20 border border-white/10 flex items-end p-4">
-              <div className="text-left">
-                {title == "Towards Universal Semantics w/ LLMs" ? (
-                  <p className="text-xs uppercase tracking-[0.3em] text-white/60">Research Paper</p>
-                ) : (
-                  <p className="text-xs uppercase tracking-[0.3em] text-white/60">Project</p>
-                )}
-                <h3 className="text-lg md:text-xl font-extrabold text-white">{title}</h3>
-              </div>
-            </div>
-          )}
-        </CardHeader>
-        <CardContent className="flex flex-col gap-1 px-3 pb-3">
-          <CardTitle className="text-lg md:text-xl font-extrabold text-white">{title}</CardTitle>
-          <CardDescription className="mb-1.5 text-white text-xs text-gray-200">{description}</CardDescription>
-          <div className="flex flex-wrap gap-1.5 mt-1">
-            {technologies.map((tech) => (
-              <div key={tech} className="flex text-xs gap-1">
-               <TechBlock icon={tech} name={tech} size="sm" />
-              </div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
+      {image && (
+        <img
+          src={image}
+          alt={title}
+          loading="lazy"
+          decoding="async"
+          className="mb-3 h-36 w-full rounded-sm object-cover"
+        />
+      )}
+      <h3 className="text-sm font-medium">{title}</h3>
+      <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{description}</p>
+      <TechTags items={technologies} className="mt-3" />
     </>
   )
 
+  const className = "flex h-full flex-col border border-border bg-card p-4 transition-colors"
+
   if (!link) {
-    return <div className="block">{cardContent}</div>
+    return <div className={className}>{content}</div>
   }
 
   return (
@@ -84,10 +45,9 @@ export function ProjectCard({
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      className="block"
-      style={{ textDecoration: "none" }}
+      className={`${className} hover:border-muted-foreground/40`}
     >
-      {cardContent}
+      {content}
     </a>
   )
 }

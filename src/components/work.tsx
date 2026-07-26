@@ -1,10 +1,8 @@
-import { AuroraText } from "./ui/aurora-text";
-import { Card } from "./ui/card";
-import { Badge } from "./ui/badge";
+import { Section } from "./section";
+import { TechTags } from "./tech-tags";
 import odot from "../assets/company-logos/odot.png";
 import osu from "../assets/company-logos/osu.png";
 import osucoe from "../assets/company-logos/osucoe.png";
-import { TechBlock } from "./cards/techBlock";
 
 const experiences = [
     {
@@ -41,81 +39,34 @@ const experiences = [
 
 export function Work() {
     return (
-        <section id="my-work" className="px-6 py-16">
-            <div className="flex flex-row items-center justify-center">
-                <span className="text-5xl font-black mb-12 mr-3">Work</span>
-                <AuroraText className="text-5xl font-black mb-12">Experience</AuroraText>
-            </div>
-            <div className="relative max-w-4xl mx-auto">
-                {/* Vertical Timeline Line */}
-                <div className="absolute left-[1.72rem] top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#FF0080] via-[#7928CA] via-60% to-[#0070F3] to-90% hidden md:block" style={{ backgroundImage: "linear-gradient(to bottom, #0070F3 66%, #38bdf8 100%)" }} />
-                <div className="space-y-8">
-                    {experiences.map((exp, index) => (
-                        <div key={index} className="relative flex items-start gap-6">
-                            {/* Timeline Dot */}
-                            <div className="hidden md:flex items-center justify-center flex-shrink-0">
-                                <div className="relative z-10 flex items-center justify-center w-14 h-14">
+        <Section id="my-work" title="Work">
+            <ul className="divide-y divide-border">
+                {experiences.map((exp) => (
+                    <li key={exp.company} className="flex gap-4 py-6 first:pt-0 last:pb-0">
+                        <a href={exp.link} target="_blank" rel="noopener noreferrer" className="shrink-0">
+                            <img
+                                src={exp.logo}
+                                alt={`${exp.company} logo`}
+                                loading="lazy"
+                                decoding="async"
+                                className="h-8 w-8 rounded-sm object-contain"
+                            />
+                        </a>
 
-                                    {/* Inner solid gradient dot with outer glow */}
-                                    <div
-                                        className="relative w-6 h-6 rounded-full shadow-lg"
-                                        style={{
-                                            background: "linear-gradient(135deg, #0070F3 0%, #38bdf8 100%)",
-                                            boxShadow: "0 0 24px 8px rgb(56, 189, 248, 0.3), 0 0 0 0 rgb(0, 112, 243, 0.3), 0 0 0 0 rgb(255, 0, 128, 0.3)"
-                                        }}
-                                    />
-                                </div>
+                        <div className="min-w-0 flex-1">
+                            <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
+                                <h3 className="text-sm font-medium">{exp.title}</h3>
+                                <span className="font-mono text-xs whitespace-nowrap text-muted-foreground">
+                                    {exp.period}
+                                </span>
                             </div>
-
-                            {/* Card Content */}
-                            <div className="flex-1">
-                                <Card className="p-5 !py-5 !gap-2 bg-black/80 hover:shadow-lg transition-all hover:translate-x-2 duration-300">
-                                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
-                                        <div className="flex items-center gap-3">
-                                            {/* Company Logo */}
-                                            <a href={exp.link} target="_blank" rel="noopener noreferrer">
-                                                <div className=" rounded bg-muted flex items-center justify-center border border-border">
-                                                    <img
-                                                        src={exp.logo}
-                                                        alt={`${exp.company} logo`}
-                                                        loading="lazy"
-                                                        decoding="async"
-                                                        className="w-11 h-11 object-cover"
-                                                        />
-                                                </div>
-                                            </a>
-                                            <div>
-                                                <h3 className="text-lg font-semibold text-foreground text-left">{exp.title}</h3>
-                                                <p
-                                                    className="font-medium text-base text-left"
-                                                    style={{
-                                                        background: "linear-gradient(135deg, #0070F3 0%, #38bdf8 100%)",
-                                                        WebkitBackgroundClip: "text",
-                                                        WebkitTextFillColor: "transparent",
-                                                        backgroundClip: "text",
-                                                        color: "transparent"
-                                                    }}
-                                                >
-                                                    {exp.company}
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <span className="text-sm text-white whitespace-nowrap">{exp.period}</span>
-                                    </div>
-                                    <p className="text-white text-sm mb-3 leading-relaxed text-left">{exp.description}</p>
-                                    <div className="flex flex-wrap gap-1.5">
-                                        {exp.technologies.map((tech) => (
-                                            <Badge key={tech} variant="outline" className="text-sm px-1.5 py-0.5">
-                                                <TechBlock icon={tech} name={tech} />
-                                            </Badge>
-                                            ))}
-                                        </div>
-                                </Card>
-                            </div>
+                            <p className="text-xs text-muted-foreground">{exp.company}</p>
+                            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{exp.description}</p>
+                            <TechTags items={exp.technologies} className="mt-3" />
                         </div>
-                    ))}
-                </div>
-            </div>
-        </section>
+                    </li>
+                ))}
+            </ul>
+        </Section>
     )
 }

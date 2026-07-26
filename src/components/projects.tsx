@@ -1,5 +1,5 @@
 import { ProjectCard } from "./cards/projectCard";
-import { AuroraText } from "./ui/aurora-text";
+import { Section } from "./section";
 
 import runmetrics from "../assets/project-photos/runmetrics.png";
 import academia from "../assets/project-photos/academia.png";
@@ -15,12 +15,8 @@ import brainch from "../assets/project-photos/brainch.png";
 
 export function Projects() {
     return (
-        <section id="projects" className="px-6 py-16">
-            <div className="flex flex-row items-center justify-center">
-                <span className="text-5xl font-black mb-12 mr-3">My</span>
-                <AuroraText className="text-5xl font-black mb-12">Projects</AuroraText>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-60 gap-y-4 max-w-6xl mx-auto justify-items-center">
+        <Section id="projects" title="Projects">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <ProjectCard
                     title="RunMetrics Visualizer"
                     description="Devtool library built from scratch, focused on algorithm analysis data aggregation & visualization. Published to PyPi."
@@ -111,6 +107,6 @@ export function Projects() {
                     technologies={["C#", ".NET", "ASP.NET", "Git"]}
                 />
             </div>
-        </section>
+        </Section>
     )
 }

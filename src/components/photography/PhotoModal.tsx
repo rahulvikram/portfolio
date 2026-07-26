@@ -9,11 +9,11 @@ interface PhotoModalProps {
   onClose: () => void;
 }
 
-export function PhotoModal({ photos, initialIndex, onClose }: PhotoModalProps) {
+export function PhotoModal({ photos, initialIndex, onClose }: Readonly<PhotoModalProps>) {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
 
   const currentPhoto = photos[currentIndex];
-  console.log(currentPhoto.camera)
+
   const handleNext = useCallback(() => {
     setCurrentIndex((prev) => (prev === photos.length - 1 ? 0 : prev + 1));
   }, [photos.length]);
@@ -52,7 +52,7 @@ export function PhotoModal({ photos, initialIndex, onClose }: PhotoModalProps) {
           <button
             onClick={onClose}
             aria-label="Close photo viewer"
-            className="group items-center justify-center rounded-full !bg-transparent !p-0 !text-white/50 transition-colors focus:outline-none focus-visible:!outline-none"
+            className="group items-center justify-center text-white/50 transition-colors hover:text-white"
           >
             <X className="w-6 h-6 group-hover:rotate-90 transition-transform duration-300" />
           </button>
@@ -62,7 +62,7 @@ export function PhotoModal({ photos, initialIndex, onClose }: PhotoModalProps) {
       <button
         onClick={(e) => { e.stopPropagation(); handlePrev(); }}
         aria-label="Previous photo"
-        className="group absolute left-3 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full !p-0 !text-white/50 transition-colors focus:outline-none focus-visible:!outline-none"
+        className="group absolute left-3 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center text-white/50 transition-colors hover:text-white"
       >
         <ChevronLeft className="w-8 h-8 group-hover:-translate-x-1 transition-transform duration-100" />
       </button>
@@ -70,7 +70,7 @@ export function PhotoModal({ photos, initialIndex, onClose }: PhotoModalProps) {
       <button
         onClick={(e) => { e.stopPropagation(); handleNext(); }}
         aria-label="Next photo"
-        className="group absolute right-3 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full !p-0 !text-white/50 transition-colors focus:outline-none focus-visible:!outline-none"
+        className="group absolute right-3 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center text-white/50 transition-colors hover:text-white"
       >
         <ChevronRight className="w-8 h-8 group-hover:translate-x-1 transition-transform duration-100" />
       </button>

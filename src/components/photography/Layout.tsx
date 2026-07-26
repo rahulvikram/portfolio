@@ -3,21 +3,16 @@ import { HomeIcon } from "lucide-react";
 
 export function FigmaShowcaseLayout() {
   return (
-    <div
-      className="photography w-full min-h-screen bg-[#fafafa] text-zinc-900 flex flex-col"
-      style={{ fontFamily: "'Helvetica Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" }}
-    >
-      <main className="flex-grow flex flex-col">
+    <div className="flex min-h-screen w-full flex-col bg-background text-foreground">
+      <main className="flex flex-grow flex-col">
         <Outlet />
       </main>
 
-      <footer className="py-8 px-6 md:px-12 text-zinc-500 text-sm flex flex-col md:flex-row justify-between items-center border-t border-zinc-200/50 mt-auto bg-[#fafafa]">
+      <footer className="mt-auto flex flex-col items-center justify-between gap-4 border-t border-border px-6 py-8 font-mono text-xs text-muted-foreground md:flex-row md:px-12">
         <p>&copy; {new Date().getFullYear()} Rahul Vikram.</p>
-        <div className="flex gap-4 mt-4 md:mt-0">
-          <Link to="/" className="hover:text-zinc-900 transition-colors">
-            <HomeIcon className="w-4 h-4" />
-          </Link>
-        </div>
+        <Link to="/" aria-label="Home" className="transition-colors hover:text-foreground">
+          <HomeIcon className="h-4 w-4" />
+        </Link>
       </footer>
     </div>
   );
