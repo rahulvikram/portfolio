@@ -16,6 +16,7 @@ declare module 'virtual:photo-data' {
   interface Location {
     id: string
     name: string
+    year: string
     coverImage: string
     photos: Photo[]
   }

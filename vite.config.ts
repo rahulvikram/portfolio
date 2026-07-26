@@ -15,10 +15,23 @@ function isVisibleImageFile(name: string): boolean {
   return ALL_IMAGE_EXTENSIONS.has(path.extname(name).toLowerCase())
 }
 
-function capitalize(str: string): string {
+function folderToTitle(str: string): string {
   return str
     .replace(/[-_]/g, ' ')
-    .replace(/\b\w/g, (c) => c.toUpperCase())
+    .toLowerCase()
+}
+
+function parseFolderName(folder: string): { name: string; year: string } {
+  const match = folder.match(/^(.*)_(\d{4})(?:-(\d{4}))?$/)
+  if (!match) {
+    return { name: folderToTitle(folder), year: '' }
+  }
+
+  const [, cityPart, startYear, endYear] = match
+  return {
+    name: folderToTitle(cityPart),
+    year: endYear ? `${startYear}-${endYear}` : startYear,
+  }
 }
 
 function filenameToAlt(filename: string): string {
@@ -154,9 +167,12 @@ async function buildPhotoData(photosDir: string): Promise<string> {
       })
     }
 
+    const { name, year } = parseFolderName(folder)
+
     locations.push({
       id: folder,
-      name: capitalize(folder),
+      name,
+      year,
       coverImage: photos[0].url,
       photos,
     })
