@@ -15,6 +15,7 @@ export interface Photo {
 export interface Location {
   id: string
   name: string
+  year: string
   coverImage: string
   photos: Photo[]
 }

@@ -2,6 +2,18 @@ import { Link } from "react-router-dom";
 import { locations } from "@/lib/photos";
 import { motion } from "motion/react";
 
+/**
+ * Controls how the "N photos" line on each album card behaves pre-hover vs on-hover.
+ *
+ * 1 = Collapse & animate in: no space is reserved for the line pre-hover; it
+ *     animates open (max-height + opacity) on hover.
+ * 2 = Slide up on hover: the line takes up zero layout space and is
+ *     absolutely positioned, sliding/fading into place via a transform on hover.
+ * 3 = Always reserve space, just dim: the line's space is always reserved in
+ *     the flow, only its opacity toggles on hover.
+ */
+const CARD_TYPOGRAPHY: 1 | 2 | 3 = 1;
+
 export function FigmaHomePage() {
   return (
     <motion.div 
@@ -12,11 +24,8 @@ export function FigmaHomePage() {
     >
       <header className="mb-12 text-center md:text-left">
         <h1 className="photo-header text-5xl font-light tracking-tight text-black-900 mb-4">
-          Photography Gallery
+          photography gallery
         </h1>
-        <p className="text-lg text-zinc-500 font-light max-w-xl">
-          Places I've been, things I've captured, people I love, moments to remember.
-        </p>
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -39,9 +48,32 @@ export function FigmaHomePage() {
               <h2 className="text-white text-2xl font-medium tracking-wide">
                 {loc.name}
               </h2>
-              <p className="text-white/80 text-sm mt-1 opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out delay-75">
-                {loc.photos.length} photos
-              </p>
+              {loc.year && (
+                <p className="text-white/70 text-sm mt-1 tracking-wide">
+                  {loc.year}
+                </p>
+              )}
+              {CARD_TYPOGRAPHY === 1 && (
+                <div className="max-h-0 overflow-hidden group-hover:max-h-6 transition-all duration-500 ease-out">
+                  <p className="text-white/80 text-sm mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out delay-100">
+                    {loc.photos.length} photos
+                  </p>
+                </div>
+              )}
+
+              {CARD_TYPOGRAPHY === 2 && (
+                <div className="relative h-0">
+                  <p className="absolute left-0 top-1 whitespace-nowrap text-white/80 text-sm opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out delay-75">
+                    {loc.photos.length} photos
+                  </p>
+                </div>
+              )}
+
+              {CARD_TYPOGRAPHY === 3 && (
+                <p className="text-white/80 text-sm mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out delay-75">
+                  {loc.photos.length} photos
+                </p>
+              )}
             </div>
           </Link>
         ))}

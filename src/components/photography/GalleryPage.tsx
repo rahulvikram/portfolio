@@ -51,6 +51,11 @@ export function FigmaGalleryPage() {
           <h1 className="text-4xl mt-14 md:text-5xl font-light tracking-tight text-zinc-900 text-left">
             {location.name}
           </h1>
+          {location.year && (
+            <p className="text-zinc-400 mt-1 font-light text-left tracking-wide">
+              {location.year}
+            </p>
+          )}
           <p className="text-zinc-500 mt-2 font-light text-left">
             {location.photos.length} observations
           </p>
