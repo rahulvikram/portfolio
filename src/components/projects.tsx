@@ -84,7 +84,7 @@ export function Projects() {
                     title="Watch Your Sleep"
                     description="A Swift-based Apple Watch app that uses real-time sleep and motion data to wake users at an optimal point in their sleep cycle."
                     image={optimalwakefulness}
-                    link="https://github.com/Carson274/Optimal-Wakefulness/"
+                    link="https://watch-your-sleep.vercel.app/"
                     technologies={["Swift", "Xcode"]}
                 />
                 <ProjectCard

@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "lucide-react"
 import { socialLinks } from "@/lib/social"
 import me from "../assets/me.jpg"
 import Resume from "../assets/Resume.pdf"
@@ -15,16 +16,16 @@ export function Landing() {
         height={128}
         loading="eager"
         decoding="async"
-        className="h-32 w-32 rounded-sm object-cover"
+        className="h-32 w-32 object-cover"
       />
 
       <div>
         <h1 className="text-3xl font-medium tracking-tight sm:text-4xl">Rahul Vikram</h1>
         <p className="mt-1 text-sm text-muted-foreground">
-          Software engineer, web developer, AI researcher, and photographer.
+          full-stack software engineer. interests: distributed systems and photography.
         </p>
 
-        <div className="mt-4 flex items-center gap-4">
+        <div className="mt-4 flex flex-wrap items-center gap-2.5">
           {socialLinks.map((social) => (
             <a
               key={social.name}
@@ -32,18 +33,20 @@ export function Landing() {
               aria-label={social.label}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground transition-colors hover:text-foreground"
+              className="inline-flex items-center gap-2 border border-background/100 bg-foreground px-4 py-2 font-mono text-xs text-background transition-opacity hover:opacity-60"
             >
-              <social.icon className="h-4 w-4" />
+              <social.icon className="h-3.5 w-3.5" />
+              {social.name.toLowerCase()}
             </a>
           ))}
           <a
             href={Resume}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono text-xs text-muted-foreground transition-colors hover:text-foreground"
+            className="inline-flex items-center gap-1.5 rounded-r-2xl border border-background/100 bg-foreground px-4 py-2 font-mono text-xs text-background transition-opacity hover:opacity-80"
           >
-            view resume
+            resume
+            <ArrowUpRight className="h-3.5 w-3.5" />
           </a>
         </div>
       </div>

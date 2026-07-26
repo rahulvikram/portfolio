@@ -34,7 +34,8 @@ export function ProjectCard({
     </>
   )
 
-  const className = "flex h-full flex-col border border-border bg-card p-4 transition-colors"
+  const className =
+    "flex h-full flex-col border border-border bg-card p-4 transition-[color,box-shadow,border-color]"
 
   if (!link) {
     return <div className={className}>{content}</div>
@@ -45,7 +46,7 @@ export function ProjectCard({
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      className={`${className} hover:border-muted-foreground/40`}
+      className={`${className} hover:border-muted-foreground/40 hover:shadow-md`}
     >
       {content}
     </a>
