@@ -11,8 +11,6 @@ const navFields = [
   { name: "Work", href: "#my-work" },
   { name: "Projects", href: "#projects" },
   { name: "Skills", href: "#skills" },
-  { name: "Contact", href: "#contact" },
-  { name: "Resume", href: Resume, target: "_blank", rel: "noopener noreferrer" },
   { name: "Photography", href: "/photography" },
 ]
 

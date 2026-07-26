@@ -33,7 +33,8 @@ export function Landing() {
               aria-label={social.label}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-background/100 bg-foreground px-4 py-2 font-mono text-xs text-background transition-opacity hover:opacity-60"
+              style={{ backgroundColor: social.color }}
+              className="inline-flex items-center gap-1 border border-background/100 px-4 py-2 font-mono text-xs text-white transition-opacity hover:opacity-80"
             >
               <social.icon className="h-3.5 w-3.5" />
               {social.name.toLowerCase()}
