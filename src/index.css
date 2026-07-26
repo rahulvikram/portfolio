@@ -265,12 +265,17 @@ button:focus-visible {
   cursor: auto !important;
 }
 
-.photography a {
+.photography a[href] {
+  cursor: pointer !important;
+  font-weight: 400;
+}
+
+.photography a:not([class*="text-"]) {
   color: inherit;
   font-weight: inherit;
 }
 
-.photography a:hover {
+.photography a:not([class*="text-"]):hover {
   color: inherit;
 }
 

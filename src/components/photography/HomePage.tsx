@@ -26,6 +26,9 @@ export function FigmaHomePage() {
         <h1 className="photo-header text-5xl font-light tracking-tight text-black-900 mb-4">
           photography gallery
         </h1>
+        <p className="text-lg text-zinc-600 font-light max-w-xl">
+          aka my diary — shot on <a href="https://www.usa.canon.com/support/p/eos-rebel-t3i?srsltid=AfmBOoqLJF8nXBPo-cjcAl7g6ZsSfOgR2ydYKpBe9Z9hVebCp0BNLIN2" className="text-blue-300 hover:underline hover:text-blue-840" target="_blank" rel="noopener noreferrer">eos</a>
+        </p>
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
