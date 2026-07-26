@@ -38,17 +38,17 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-sm">
-      <nav className="mx-auto flex h-14 w-full max-w-3xl items-center justify-between px-6">
+      <nav className="mx-auto flex h-14 w-full max-w-4xl items-center justify-between px-6">
         <Link
           to="/"
-          className="text-sm font-medium tracking-tight"
+          className="text-md font-medium tracking-tight"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
           Rahul Vikram
         </Link>
 
-        <div className="flex items-center gap-6">
-          <div className="hidden items-center gap-6 md:flex">
+        <div className="flex items-center gap-10">
+          <div className="hidden items-center gap-10 md:flex">
             {navFields.map((field) => (
               <Link
                 key={field.name}
