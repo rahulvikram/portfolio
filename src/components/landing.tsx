@@ -1,61 +1,55 @@
-import { TextAnimate } from "@/components/ui/text-animate"
-import { TypingAnimation } from "@/components/ui/typing-animation"
-import { AuroraText } from "./ui/aurora-text"
-
-/*
-        <div id="landing" className="relative w-full h-[100vh] flex flex-col items-center justify-center overflow-hidden">
--           <div className="fixed inset-0 w-full h-full z-0 opacity-40 animate-fade-in duration-4000">
--             <FlickeringGrid squareSize={12} color="white" maxOpacity={0.03} />
-           <div className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-40 animate-fade-in duration-4000">
-             <FlickeringGrid squareSize={12} color="white" maxOpacity={0.03} className="pointer-events-none" />
-            </div>
-*/
+import { ArrowUpRight } from "lucide-react"
+import { socialLinks } from "@/lib/social"
+import me from "../assets/me.jpg"
+import Resume from "../assets/Resume.pdf"
 
 export function Landing() {
   return (
-    <>
-      <div id="landing" className="relative w-screen min-h-[100svh] max-w-full flex flex-col items-center justify-center overflow-hidden px-4 select-none">
-        <style>
-          {`
-            @keyframes fade-in {
-              from { opacity: 0; }
-              to { opacity: 0.4; }
-            }
-            .animate-fade-in {
-              animation: fade-in 2s ease-in;
-            }
-          `}
-        </style>
-        <div className="relative z-10 flex flex-col items-center text-center max-w-full">
-          <div className="flex flex-col sm:flex-row items-center sm:items-end mb-1 gap-1 sm:gap-0">
-            <TextAnimate
-              className="font-black mr-0 sm:mr-4 text-4xl sm:text-7xl leading-none select-none"
-              animation="slideDown"
-              by="character"
-              duration={2}
+    <section
+      id="landing"
+      className="flex flex-col gap-6 py-16 sm:flex-row sm:items-center sm:gap-8"
+    >
+      <img
+        src={me}
+        alt="Rahul Vikram"
+        width={128}
+        height={128}
+        loading="eager"
+        decoding="async"
+        className="h-32 w-32 object-cover"
+      />
+
+      <div>
+        <h1 className="text-3xl font-medium tracking-tight sm:text-4xl">Rahul Vikram</h1>
+        <p className="mt-1 text-sm text-muted-foreground">
+          full-stack software engineer. interests: distributed systems and photography.
+        </p>
+
+        <div className="mt-4 flex flex-wrap items-center gap-2.5">
+          {socialLinks.map((social) => (
+            <a
+              key={social.name}
+              href={social.url}
+              aria-label={social.label}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 border border-background/100 bg-foreground px-4 py-2 font-mono text-xs text-background transition-opacity hover:opacity-60"
             >
-              Rahul
-            </TextAnimate>
-            <TextAnimate
-              className="font-black text-4xl sm:text-7xl leading-none select-none"
-              animation="slideDown"
-              by="character"
-              duration={2}
-              renderSegment={(seg) => (
-                <AuroraText speed={1.67}>
-                  {seg}
-                </AuroraText>
-              )}
-            >
-              Vikram
-            </TextAnimate>
-          </div>
-          <div className="flex flex-col sm:flex-row items-center">
-            <span className="hidden sm:inline-block text-5xl mr-3">‎</span>
-            <TypingAnimation pauseDelay={2000} blinkCursor={true} showCursor={false} typeSpeed={100} className="text-2xl sm:text-4xl font-bold" words={["Welcome to my personal website!", "Software Engineer", "Web Developer", "AI Researcher", "Photographer"]} loop />
-          </div>
+              <social.icon className="h-3.5 w-3.5" />
+              {social.name.toLowerCase()}
+            </a>
+          ))}
+          <a
+            href={Resume}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-r-2xl border border-background/100 bg-foreground px-4 py-2 font-mono text-xs text-background transition-opacity hover:opacity-80"
+          >
+            resume
+            <ArrowUpRight className="h-3.5 w-3.5" />
+          </a>
         </div>
       </div>
-    </>
+    </section>
   )
 }

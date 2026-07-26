@@ -1,34 +1,26 @@
 import './index.css'
-import './App.css'
+import { ScrollProgress } from '@/components/ui/scroll-progress'
 import { Navbar } from '@/components/navbar'
 import { Landing } from '@/components/landing'
-import { Contact } from '@/components/contact'
+import { Footer } from '@/components/footer'
 import { About } from '@/components/about'
 import { Projects } from '@/components/projects'
 import { Skills } from '@/components/skills'
 import { Work } from '@/components/work'
-import { FlickeringGrid } from './components/ui/flickering-grid'
+
 function App() {
   return (
     <>
+      <ScrollProgress className="top-[56px] z-100" />
       <Navbar />
-      <div className="fixed inset-0 pointer-events-none z-0 opacity-80 animate-fade-in duration-4000">
-        <FlickeringGrid
-          squareSize={16}
-          gridGap={12}
-          flickerChance={0.15}
-          targetFps={24}
-          color="white"
-          maxOpacity={0.03}
-          className="pointer-events-none"
-        />
-      </div>
-      <Landing />
-      <About />
-      <Work />
-      <Projects />
-      <Skills />
-      <Contact />
+      <main className="mx-auto w-full max-w-3xl px-6">
+        <Landing />
+        <About />
+        <Work />
+        <Projects />
+        <Skills />
+        <Footer />
+      </main>
     </>
   )
 }

@@ -1,0 +1,43 @@
+"use client"
+
+import { Card } from "@v1/components/ui/card"
+import { ColorTechBlock } from "./colorTechblock"
+import { AuroraText } from "../ui/aurora-text"
+
+type SkillCardProps = {
+    title: string,
+    techs: string[]
+}
+
+export function SkillCard({
+  title,
+  techs,
+}: SkillCardProps) {
+    let splitTitle = title.split(" ");
+    let firstWord = splitTitle[0];
+    let secondWord = splitTitle[1];
+    let thirdWord = splitTitle[2];
+    if (splitTitle[1].length < 2) {
+        thirdWord = splitTitle[2];
+    }
+    return (
+    <div className="w-full">
+        <Card className="p-4 bg-black/80 hover:shadow-lg w-full gap-3">
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between">
+                <div className="flex items-center gap-3">
+                    <div>
+                        <AuroraText className="text-2xl font-black mr-2">{firstWord}</AuroraText>
+                        <span className="text-2xl font-black">{secondWord} </span>
+                        {thirdWord && <span className="text-2xl font-black">{thirdWord}</span>}
+                    </div>
+                </div>
+            </div>
+            <div className="flex flex-wrap gap-2">  
+                {techs.map((tech) => (
+                    <ColorTechBlock icon={tech} name={tech} key={tech} />
+                ))}
+            </div>
+        </Card>
+    </div>
+    )
+}

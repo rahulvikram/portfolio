@@ -10,7 +10,14 @@
     <meta name="robots" content="index, follow">
     <title>Rahul Vikram</title>
     <script>
-      document.documentElement.classList.add('dark');
+      // Applied before paint so the stored theme doesn't flash the wrong colors.
+      (function () {
+        var stored = localStorage.getItem('theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (stored === 'dark' || (!stored && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
     </script>
   </head>
   <body>

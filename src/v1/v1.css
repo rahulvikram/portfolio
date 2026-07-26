@@ -1,0 +1,155 @@
+/*
+ * Styles for v1 of the site, which renders only under /v1.
+ *
+ * These were global rules when v1 was the whole site. They are now scoped to the
+ * `.site-v1` wrapper so they can't reach the current design. Element selectors sit
+ * inside `:where()` to keep the zero specificity they had as bare globals, so utility
+ * classes on v1's markup still win the way they always did.
+ */
+
+@theme inline {
+  --animate-blink-cursor: blink-cursor 1.2s step-end infinite;
+  --animate-aurora: aurora 10s linear infinite;
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+
+  @keyframes blink-cursor {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+  }
+
+  @keyframes aurora {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-100% - var(--gap))); }
+  }
+
+  @keyframes marquee-vertical {
+    from { transform: translateY(0); }
+    to { transform: translateY(calc(-100% - var(--gap))); }
+  }
+}
+
+.site-v1 {
+  /*
+   * v1 only ever rendered in its dark palette, so these are pinned here rather than
+   * keyed off `.dark` — the current design's theme toggle must not reach v1.
+   */
+  --background: #0b1020;
+  --foreground: #E7ECEF;
+  --card: #0f172a;
+  --card-foreground: #E7ECEF;
+  --popover: #0f172a;
+  --popover-foreground: #E7ECEF;
+  --primary: #7928CA;
+  --primary-foreground: #f5f7ff;
+  --secondary: #0070F3;
+  --secondary-foreground: #eaf4ff;
+  --muted: #12223b;
+  --muted-foreground: #b7cff5;
+  --accent: #FF0080;
+  --accent-foreground: #0b1020;
+  --destructive: #E11D48;
+  --border: #1f2a44;
+  --input: #1f2a44;
+  --ring: #38bdf8;
+
+  /* The current design derives its radius steps differently; 0.5rem reproduces v1's
+     original 6/8/10px sm/md/lg. */
+  --radius: 0.5rem;
+
+  width: 100%;
+  min-height: 100dvh;
+  padding-bottom: 2rem;
+  text-align: center;
+  font-family: "Inter Tight", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--foreground);
+  background-color: #000000;
+  color-scheme: dark;
+  cursor: none !important;
+}
+
+/* v1 draws its own cursor, so the native one is hidden across the whole tree. */
+:where(.site-v1) *,
+:where(.site-v1) *::before,
+:where(.site-v1) *::after {
+  cursor: none !important;
+}
+
+:where(.site-v1) a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+:where(.site-v1) a:hover {
+  color: #535bf2;
+}
+
+:where(.site-v1) button {
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--card);
+  color: var(--card-foreground);
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+:where(.site-v1) button:hover {
+  border-color: var(--ring);
+}
+
+:where(.site-v1) button:focus,
+:where(.site-v1) button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* v1's photography pages opt back out of the custom cursor and the dark chrome. */
+.site-v1 .photography,
+.site-v1 .photography *,
+.site-v1 .photography *::before,
+.site-v1 .photography *::after {
+  cursor: auto !important;
+}
+
+.site-v1 .photography a[href] {
+  cursor: pointer !important;
+  font-weight: 400;
+}
+
+.site-v1 .photography a:not([class*="text-"]),
+.site-v1 .photography a:not([class*="text-"]):hover {
+  color: inherit;
+  font-weight: inherit;
+}
+
+.site-v1 .photography button {
+  border-radius: inherit;
+  border: initial;
+  padding: initial;
+  font-size: inherit;
+  font-weight: inherit;
+  background-color: transparent;
+  color: inherit;
+}
+
+.site-v1 .photography {
+  background-color: #fafafa;
+}
+
+/* v1's animations overflow horizontally, and only its pages should let the body clip. */
+body:has(.site-v1) {
+  overflow-x: hidden;
+  background-color: #000000;
+}

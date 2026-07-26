@@ -1,10 +1,14 @@
-import { Section } from "./section";
+import { AuroraText } from "./ui/aurora-text";
 import { SkillCard } from "./cards/skillCard";
 
 export function Skills() {
     return (
-        <Section id="skills" title="Technical Skills">
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+        <section id="skills" className="px-6 py-16">
+            <div className="flex flex-row items-center justify-center">
+                <AuroraText className="text-5xl font-black mb-12 mr-3">Technical</AuroraText>
+                <span className="text-5xl font-black mb-12">Skills</span>
+            </div>
+            <div className="relative max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
                 <SkillCard
                     title="Programming Languages"
                     techs={["Python", "JavaScript", "TypeScript", "C", "C++", "C#", "Java", "SQL", "HTML5", "CSS3"]}
@@ -30,7 +34,7 @@ export function Skills() {
                     techs={["NumPy", "pandas", "sklearn", "matplotlib", "tensorflow", "pytorch"]}
                 />
             </div>
-        </Section>
+        </section>
     )
 }
 

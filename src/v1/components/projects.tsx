@@ -1,22 +1,26 @@
 import { ProjectCard } from "./cards/projectCard";
-import { Section } from "./section";
+import { AuroraText } from "./ui/aurora-text";
 
-import runmetrics from "../assets/project-photos/runmetrics.png";
-import academia from "../assets/project-photos/academia.png";
-import beaverboard from "../assets/project-photos/beaver-board.png";
-import groqqoli from "../assets/project-photos/groqqoli.png";
-import leaflens from "../assets/project-photos/leaflens.png";
-import packtrack from "../assets/project-photos/packtrack.jpg";
-import internshipscraper from "../assets/company-logos/github.png";
-import optimalwakefulness from "../assets/project-photos/optw.png";
-import rf from "../assets/project-photos/rf.png";
-import consensus from "../assets/project-photos/consensus.png";
-import brainch from "../assets/project-photos/brainch.png";
+import runmetrics from "@/assets/project-photos/runmetrics.png";
+import academia from "@/assets/project-photos/academia.png";
+import beaverboard from "@/assets/project-photos/beaver-board.png";
+import groqqoli from "@/assets/project-photos/groqqoli.png";
+import leaflens from "@/assets/project-photos/leaflens.png";
+import packtrack from "@/assets/project-photos/packtrack.jpg";
+import internshipscraper from "@/assets/company-logos/github.png";
+import optimalwakefulness from "@/assets/project-photos/optw.png";
+import rf from "@/assets/project-photos/rf.png";
+import consensus from "@/assets/project-photos/consensus.png";
+import brainch from "@/assets/project-photos/brainch.png";
 
 export function Projects() {
     return (
-        <Section id="projects" title="Projects">
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <section id="projects" className="px-6 py-16">
+            <div className="flex flex-row items-center justify-center">
+                <span className="text-5xl font-black mb-12 mr-3">My</span>
+                <AuroraText className="text-5xl font-black mb-12">Projects</AuroraText>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-60 gap-y-4 max-w-6xl mx-auto justify-items-center">
                 <ProjectCard
                     title="RunMetrics Visualizer"
                     description="Devtool library built from scratch, focused on algorithm analysis data aggregation & visualization. Published to PyPi."
@@ -84,7 +88,7 @@ export function Projects() {
                     title="Watch Your Sleep"
                     description="A Swift-based Apple Watch app that uses real-time sleep and motion data to wake users at an optimal point in their sleep cycle."
                     image={optimalwakefulness}
-                    link="https://watch-your-sleep.vercel.app/"
+                    link="https://github.com/Carson274/Optimal-Wakefulness/"
                     technologies={["Swift", "Xcode"]}
                 />
                 <ProjectCard
@@ -107,6 +111,6 @@ export function Projects() {
                     technologies={["C#", ".NET", "ASP.NET", "Git"]}
                 />
             </div>
-        </Section>
+        </section>
     )
 }
