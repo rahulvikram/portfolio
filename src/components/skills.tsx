@@ -7,19 +7,19 @@ export function Skills() {
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
                 <SkillCard
                     title="Programming Languages"
-                    techs={["Python", "JavaScript", "TypeScript", "C", "C++", "C#", "Java", "SQL", "HTML5", "CSS3"]}
+                    techs={["Python", "JavaScript", "TypeScript", "C", "C++", "C#", "Java", "Go", "Swift", "SQL", "HTML5", "CSS3"]}
                 />
                 <SkillCard
                     title="Developer Tools"
-                    techs={["Git", "GitHub", "Docker", "DevOps", "Visual Studio", "VSCode", "Jupyter", "Google Colab"]}
+                    techs={["Git", "GitHub", "Docker", "DevOps", "Visual Studio", "VSCode", "Jupyter", "Google Colab", "Claude", "Azure DevOps", "Jira"]}
                 />
                 <SkillCard
                     title="Frontend Frameworks"
-                    techs={["React", "Next.js", "Vue", "Redux", "Vite", "Tailwind", "Cypress"]}
+                    techs={["React", "Next.js", "Vue", "Redux", "Vite", "Vitest", "Zod", "Tailwind", "Cypress", "Playwright"]}
                 />
                 <SkillCard
                     title="Databases & Cloud"
-                    techs={["MySQL", "PostgreSQL", "SQL Server", "AWS", "Firebase"]}
+                    techs={["MySQL", "PostgreSQL", "SQL Server", "AWS", "Firebase", "BigQuery", "Flyway", "Drizzle ORM"]}
                 />
                 <SkillCard
                     title="Backend Frameworks"

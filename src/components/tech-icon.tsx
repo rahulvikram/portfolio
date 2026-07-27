@@ -46,11 +46,14 @@ import {
     SiZod,
     SiTurborepo,
     SiRoboflow,
+    SiGooglebigquery,
+    SiClaude,
+    SiFlyway
 } from '@icons-pack/react-simple-icons';
 
 /**
- * Monochrome marks, keyed by the exact label used in tech lists. These inherit
- * the surrounding text color, so they follow the active theme.
+ * Brand-colored marks, keyed by the exact label used in tech lists. Rendered
+ * with color="default" so each icon uses its official brand hex.
  */
 const iconMap: Record<string, ComponentType<SVGProps<SVGSVGElement>>> = {
     Python: SiPython,
@@ -109,6 +112,9 @@ const iconMap: Record<string, ComponentType<SVGProps<SVGSVGElement>>> = {
     Turborepo: SiTurborepo,
     Roboflow: SiRoboflow,
     'React Flow': SiXyflow,
+    Claude: SiClaude,
+    BigQuery: SiGooglebigquery,
+    Flyway: SiFlyway,
 }
 
 /** Labels whose devicon path doesn't match the lowercased label. */
@@ -141,7 +147,7 @@ export function TechIcon({ name, className = "h-3.5 w-3.5" }: TechIconProps) {
     const Icon = iconMap[name]
 
     if (Icon) {
-        return <Icon className={className} />
+        return <Icon className={className} color="default" />
     }
 
     return (
