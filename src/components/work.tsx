@@ -3,12 +3,23 @@ import { TechTags } from "./tech-tags";
 import odot from "../assets/company-logos/odot.png";
 import osu from "../assets/company-logos/osu.png";
 import osucoe from "../assets/company-logos/osucoe.png";
+import viasat from "../assets/company-logos/viasat.jpg";
 
 const experiences = [
     {
-      title: "Full-Stack Software Developer",
+      title: "Full-Stack Software Engineer Intern",
+      company: "Viasat",
+      period: "June 2026 - September 2026",
+      link: "https://www.viasat.com/",
+      logo: viasat,
+      description:
+        "Expanded self-serve financial reporting, ad-product campaign consolidation, and integration testing infrastructure for Ads Insights, serving 600+ internal/external platform clients.",
+      technologies: ["React", "TypeScript", "Zod", "Node.js", "Express", "SQL", "BigQuery", "AWS Lambda", "Vitest", "Playwright", "Claude", "Git", "GitHub", "Jira", "Confluence"]
+    },
+    {
+      title: "Software Engineering Intern",
       company: "OSU Center for Applied Systems and Software",
-      period: "January 2025 - Present",
+      period: "January 2025 - June 2026",
       link: "https://cass.oregonstate.edu/",
       logo: osu,
       description:
@@ -16,7 +27,7 @@ const experiences = [
       technologies: ["React", "TypeScript", "C#", "SQL Server", "EF Core", "ASP.NET", "Azure", "Docker", "Cypress", "Git", "GitHub", "Azure DevOps", "Swift", "Xcode"],
     },
     {
-      title: "Software Engineer Intern",
+      title: "Software Engineering Intern",
       company: "Oregon Department of Transportation",
       period: "June 2025 - August 2025",
       link: "https://odot.oregon.gov/",

@@ -2,6 +2,21 @@ import { ArrowUpRight } from "lucide-react"
 import { socialLinks } from "@/lib/social"
 import me from "../assets/me.jpg"
 import Resume from "../assets/Resume.pdf"
+import confetti from 'canvas-confetti'
+
+const handleHover = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const rect = e.currentTarget.getBoundingClientRect();
+  confetti({
+    particleCount: 30,
+    spread: 50,
+    startVelocity: 25,
+    origin: {
+      x: (rect.left + rect.width / 2) / window.innerWidth,
+      y: (rect.top + rect.height / 2) / window.innerHeight,
+    },
+    disableForReducedMotion: true,
+  });
+};
 
 export function Landing() {
   return (
@@ -25,7 +40,7 @@ export function Landing() {
           full-stack software engineer. interests: distributed systems and photography.
         </p>
 
-        <div className="mt-4 flex flex-wrap items-center gap-2.5">
+        <div className="mt-4 flex flex-wrap items-center gap-2">
           {socialLinks.map((social) => (
             <a
               key={social.name}
@@ -35,6 +50,7 @@ export function Landing() {
               rel="noopener noreferrer"
               style={{ backgroundColor: social.color }}
               className="inline-flex items-center gap-1 border border-background/100 px-4 py-2 font-mono text-xs text-white transition-opacity hover:opacity-80"
+              onMouseEnter={social.name.toLowerCase() === "linkedin" ? handleHover : undefined}
             >
               <social.icon className="h-3.5 w-3.5" />
               {social.name.toLowerCase()}

@@ -48,9 +48,12 @@ import {
     SiRoboflow,
     SiGooglebigquery,
     SiClaude,
-    SiFlyway
+    SiFlyway,
+    SiConfluence,
 } from '@icons-pack/react-simple-icons';
 
+import lambda from '../assets/tech-logos/lambda.svg';
+import aws from '../assets/tech-logos/aws.png';
 /**
  * Brand-colored marks, keyed by the exact label used in tech lists. Rendered
  * with color="default" so each icon uses its official brand hex.
@@ -115,6 +118,14 @@ const iconMap: Record<string, ComponentType<SVGProps<SVGSVGElement>>> = {
     Claude: SiClaude,
     BigQuery: SiGooglebigquery,
     Flyway: SiFlyway,
+    Confluence: SiConfluence,
+}
+
+/** Custom local logo assets for technologies not covered by simple-icons or devicon. */
+const localIconMap: Record<string, string> = {
+    'AWS Lambda': lambda,
+    'Lambda': lambda,
+    'AWS': aws,
 }
 
 /** Labels whose devicon path doesn't match the lowercased label. */
@@ -148,6 +159,17 @@ export function TechIcon({ name, className = "h-3.5 w-3.5" }: TechIconProps) {
 
     if (Icon) {
         return <Icon className={className} color="default" />
+    }
+
+    const localIcon = localIconMap[name]
+    if (localIcon) {
+        return (
+            <img
+                src={localIcon}
+                alt=""
+                className={`${className} object-contain`}
+            />
+        )
     }
 
     return (

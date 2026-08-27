@@ -11,7 +11,7 @@ export function Skills() {
                 />
                 <SkillCard
                     title="Developer Tools"
-                    techs={["Git", "GitHub", "Docker", "DevOps", "Visual Studio", "VSCode", "Jupyter", "Google Colab", "Claude", "Azure DevOps", "Jira"]}
+                    techs={["Git", "GitHub", "Docker", "DevOps", "Visual Studio", "VSCode", "Jupyter", "Google Colab", "Claude", "Azure DevOps", "Jira", "Confluence"]}
                 />
                 <SkillCard
                     title="Frontend Frameworks"
