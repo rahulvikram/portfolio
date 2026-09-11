@@ -7,6 +7,16 @@ import viasat from "../assets/company-logos/viasat.jpg";
 
 const experiences = [
     {
+      title: "Full-Stack Software Engineer",
+      company: "Viasat",
+      period: "September 2026 - Present",
+      link: "https://www.viasat.com/",
+      logo: viasat,
+      description:
+        "Continuing to work part-time on the Insights platform with the full-stack engineering team.",
+      technologies: ["React", "TypeScript", "Zod", "Node.js", "Express", "SQL", "BigQuery", "AWS Lambda", "Vitest", "Playwright", "Claude", "Git", "GitHub", "Jira", "Confluence"]
+    },
+    {
       title: "Full-Stack Software Engineer Intern",
       company: "Viasat",
       period: "June 2026 - September 2026",
