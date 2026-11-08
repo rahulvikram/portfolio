@@ -54,6 +54,10 @@ import {
 
 import lambda from '../assets/tech-logos/lambda.svg';
 import aws from '../assets/tech-logos/aws.png';
+import phaser from '../assets/tech-logos/phaser.png';
+import yolo from '../assets/tech-logos/yolo.png';
+import mediapipe from '../assets/tech-logos/mediapipe.png';
+import tailscale from '../assets/tech-logos/tailscale.png';
 /**
  * Brand-colored marks, keyed by the exact label used in tech lists. Rendered
  * with color="default" so each icon uses its official brand hex.
@@ -126,6 +130,10 @@ const localIconMap: Record<string, string> = {
     'AWS Lambda': lambda,
     'Lambda': lambda,
     'AWS': aws,
+    Phaser: phaser,
+    YOLO: yolo,
+    MediaPipe: mediapipe,
+    Tailscale: tailscale,
 }
 
 /** Labels whose devicon path doesn't match the lowercased label. */

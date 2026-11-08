@@ -12,17 +12,65 @@ import optimalwakefulness from "../assets/project-photos/optw.png";
 import rf from "../assets/project-photos/rf.png";
 import consensus from "../assets/project-photos/consensus.png";
 import brainch from "../assets/project-photos/brainch.png";
+import stride from "../assets/project-photos/stride.png";
 
 export function Projects() {
     return (
         <Section id="projects" title="Projects">
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <ProjectCard
+                    title="Stride Defense"
+                    winner={{
+                        placement: "1st Place",
+                        track: "Best Use of Gemini",
+                        hackathon: "DubHacks 2026",
+                    }}
+                    description="Real-time treadmill-projected walking game coached by AI. Uses live overhead YOLO-World detections & side-camera MediaPipe poses turned into scored gait metrics with Gemini, delivering spoken coaching & a post-walk report."
+                    image={stride}
+                    link="https://devpost.com/software/stride-defense"
+                    technologies={["Phaser", "YOLO", "MediaPipe", "Gemini", "Socket.IO", "FastAPI", "Tailscale"]}
+                />
+                <ProjectCard
                     title="RunMetrics Visualizer"
                     description="Devtool library built from scratch, focused on algorithm analysis data aggregation & visualization. Published to PyPi."
                     image={runmetrics}
                     link="https://pypi.org/project/runmetricsvisualizer/"
                     technologies={["Python", "pandas", "matplotlib", "Git", "pypi"]}
+                />
+                <ProjectCard
+                    title="LeafLens.AI"
+                    description="An AI-powered tool that analyzes plant images and provides detailed insights about plant health, detected diseases, and recommended treatments. Powered by Google GenAI."
+                    image={leaflens}
+                    link="https://github.com/rahulvikram/doctor-plant"
+                    technologies={["React", "Next.js", "TypeScript", "Tailwind", "AWS", "Shadcn UI", "Python", "Flask", "Firebase", "Gemini", "Git"]}
+                />
+                <ProjectCard
+                    title="Consensus"
+                    description="A real-time collaborative decision-making app powered by websockets, enabling users to vote on polls, see live results, and chat with participants."
+                    image={consensus}
+                    link="https://github.com/rahulvikram/consensus"
+                    technologies={["Next.js", "TypeScript", "PostgreSQL", "Drizzle ORM", "Clerk", "Socket.IO", "Tailwind", "Zod", "Turborepo"]}
+                />
+                <ProjectCard
+                    title="RF Safety"
+                    description="A real-time road safety platform using Roboflow workflows, inference, and supervision libraries for object detection and annotated safety-zone monitoring."
+                    image={rf}
+                    link="https://github.com/rahulvikram/rf-safety"
+                    technologies={["React", "Tailwind", "Python", "Flask", "Roboflow", "Git"]}
+                />
+                <ProjectCard
+                    title="Watch Your Sleep"
+                    description="A Swift-based Apple Watch app that uses real-time sleep and motion data to wake users at an optimal point in their sleep cycle."
+                    image={optimalwakefulness}
+                    link="https://watch-your-sleep.vercel.app/"
+                    technologies={["Swift", "Xcode"]}
+                />
+                <ProjectCard
+                    title="br[AI]nch"
+                    description="Deployed AI chat interface where every conversation is a tree node. Fork any message into its own subtopic branch, then jump back."
+                    image={brainch}
+                    link="https://brainch.vercel.app/"
+                    technologies={["React", "TypeScript", "React Flow", "Tailwind", "Express", "OpenAI", "Vite", "Vercel", "Git"]}
                 />
                 <ProjectCard
                     title="Academia Hero"
@@ -46,46 +94,11 @@ export function Projects() {
                     technologies={["Next.js", "React", "TypeScript", "Tailwind", "Magic UI", "Vercel", "Git"]}
                 />
                 <ProjectCard
-                    title="LeafLens.AI"
-                    description="An AI-powered tool that analyzes plant images and provides detailed insights about plant health, detected diseases, and recommended treatments. Powered by Google GenAI."
-                    image={leaflens}
-                    link="https://github.com/rahulvikram/doctor-plant"
-                    technologies={["React", "Next.js", "TypeScript", "Tailwind", "AWS", "Shadcn UI", "Python", "Flask", "Firebase", "Gemini", "Git"]}
-                />
-                <ProjectCard
-                    title="Consensus"
-                    description="A real-time collaborative decision-making app powered by websockets, enabling users to vote on polls, see live results, and chat with participants."
-                    image={consensus}
-                    link="https://github.com/rahulvikram/consensus"
-                    technologies={["Next.js", "TypeScript", "PostgreSQL", "Drizzle ORM", "Clerk", "Socket.IO", "Tailwind", "Zod", "Turborepo"]}
-                />
-                <ProjectCard
-                    title="br[AI]nch"
-                    description="Deployed AI chat interface where every conversation is a tree node. Fork any message into its own subtopic branch, then jump back."
-                    image={brainch}
-                    link="https://brainch.vercel.app/"
-                    technologies={["React", "TypeScript", "React Flow", "Tailwind", "Express", "OpenAI", "Vite", "Vercel", "Git"]}
-                />
-                <ProjectCard
                     title="PackTrack (Work in Progress)"
                     description="A platform where delivery/logistics companies can track packages in real-time, get alerts when certain events happen (e.g., package delayed, reached hub), and support multiple clients."
                     image={packtrack}
                     link="https://github.com/rahulvikram/packtrack"
                     technologies={["React", "Redux Toolkit", "Tailwind", "Python", "Flask", "RabbitMQ", "PostgreSQL", "AWS", "Git"]}
-                />
-                <ProjectCard
-                    title="RF Safety"
-                    description="A real-time road safety platform using Roboflow workflows, inference, and supervision libraries for object detection and annotated safety-zone monitoring."
-                    image={rf}
-                    link="https://github.com/rahulvikram/rf-safety"
-                    technologies={["React", "Tailwind", "Python", "Flask", "Roboflow", "Git"]}
-                />
-                <ProjectCard
-                    title="Watch Your Sleep"
-                    description="A Swift-based Apple Watch app that uses real-time sleep and motion data to wake users at an optimal point in their sleep cycle."
-                    image={optimalwakefulness}
-                    link="https://watch-your-sleep.vercel.app/"
-                    technologies={["Swift", "Xcode"]}
                 />
                 <ProjectCard
                     title="Internship Scraper"

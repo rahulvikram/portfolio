@@ -8,7 +8,7 @@
 :root {
   --radius: 0.25rem;
 
-  --background: #fffdf9;
+  --background: #fffefb;
   --foreground: #18181b;
   --card: #ffffff;
   --card-foreground: #18181b;
@@ -120,6 +120,66 @@
     padding: 0;
     cursor: pointer;
   }
+}
+
+/* Hackathon winner card: subtle gold gradient border + corner ribbon */
+.award-card {
+  position: relative;
+  border-color: transparent;
+}
+
+.award-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #f3d98b 0%, #c9962f 50%, #f3d98b 100%);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box exclude,
+    linear-gradient(#000 0 0);
+  opacity: 0.55;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.award-card:hover::before {
+  opacity: 1;
+}
+
+/* Clips the ribbon to the card's top-right corner */
+.award-corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 92px;
+  height: 92px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.award-ribbon {
+  position: absolute;
+  top: 18px;
+  right: -30px;
+  width: 116px;
+  padding: 2px 0;
+  transform: rotate(45deg);
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #4a3410;
+  background: linear-gradient(90deg, #f3d98b, #d9a93f);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.25);
+  pointer-events: auto;
+  cursor: default;
 }
 
 ::-webkit-scrollbar {
