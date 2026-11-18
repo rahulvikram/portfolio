@@ -186,3 +186,22 @@
   width: 0;
   background: transparent;
 }
+
+/* Timeline company cards: brand gradient outline, set per card via --brand-gradient */
+/* host element must be positioned (relative/absolute) */
+.brand-outline::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  padding: 1.5px;
+  background: var(--brand-gradient);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box exclude,
+    linear-gradient(#000 0 0);
+  pointer-events: none;
+}

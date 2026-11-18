@@ -31,19 +31,17 @@ const companies: Company[] = [
                 title: "Full-Stack Software Engineer",
                 period: "March 2027 - Present",
                 description: "Ads Insights",
-                technologies: viasatTech,
             },
             {
                 title: "Full-Stack Software Engineer (Part-Time)",
                 period: "September 2026 - December 2026",
                 description: "Continuing work on Ads Insights with the full-stack engineering team.",
-                technologies: viasatTech,
             },
             {
                 title: "Full-Stack Software Engineer Intern",
                 period: "June 2026 - September 2026",
                 description:
-                    "Expanded self-serve financial reporting, ad-product campaign consolidation, and integration testing infrastructure for Ads Insights, serving 600+ internal/external platform clients.",
+                    "Self-serve financial reporting, ad-product campaign consolidation, and integration testing infrastructure for Ads Insights, serving 600+ internal/external platform clients.",
                 technologies: viasatTech,
             },
         ],

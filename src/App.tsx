@@ -7,6 +7,7 @@ import { About } from '@/components/about'
 import { Projects } from '@/components/projects'
 import { Skills } from '@/components/skills'
 import { Work } from '@/components/work'
+import { Timeline } from '@/components/timeline'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Landing />
         <About />
         <Work />
+        <Timeline />
         <Projects />
         <Skills />
         <Footer />
