@@ -9,6 +9,7 @@ import osucoe from "../assets/company-logos/osucoe.png"
 import viasat from "../assets/company-logos/viasat.jpg"
 import dubhacks from "../assets/timeline/dubhacks.jpeg"
 import capstone from "../assets/timeline/capstone.jpg"
+import peak from "../assets/timeline/peak.jpeg"
 
 // brand gradients: Viasat blue/green (brand guide), OSU Beaver Orange, ODOT orange
 // University of Washington purple + metallic gold
@@ -52,6 +53,7 @@ const entries: Entry[] = [
     { date: "June 2026", kind: "milestone", company: "viasat", title: "Joined Viasat", subtitle: "Full-Stack Software Engineer Intern" },
     { date: "June 2026", kind: "milestone", company: "cass", title: "Left CASS", subtitle: "Software Engineering Student Mentor" },
     { date: "June 2026", kind: "photo", gradient: osuGradient, image: capstone, title: "Presenting our senior capstone project @ Engineering Expo!" },
+    { date: "March 2026", kind: "photo", gradient: osuGradient, image: peak, title: "Hike at Mary's Peak in Corvallis..." },
     { date: "May 2025", kind: "milestone", company: "star", title: "Left STAR Lab", subtitle: "Applied AI Research Intern" },
     { date: "January 2025", kind: "photo", company: "cass", title: "Interning at the Center for Applied Systems and Software.", gallery: cassPhotos },
     { date: "January 2025", kind: "milestone", company: "cass", title: "Joined CASS", subtitle: "Software Engineering Intern" },
