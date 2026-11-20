@@ -46,13 +46,12 @@ const cassPhotos = cassFiles.length ? cassFiles : placeholders(6) // placeholder
 
 // newest first: scrolling right goes back in time
 const entries: Entry[] = [
-    { date: "March 2027", kind: "milestone", company: "viasat", title: "Joined Viasat full-time", subtitle: "Full-Stack Software Engineer" },
-    { date: "March 2027", kind: "milestone", company: "cass", title: "Left CASS", subtitle: "Software Engineering Student Mentor" },
+    { date: "March 2027", kind: "milestone", company: "viasat", title: "Started at Viasat", subtitle: "Full-Stack Software Engineer" },
     { date: "October 2026", kind: "photo", gradient: uwGradient, image: dubhacks, link: "https://github.com/Jakhangir18/Dubhacks2026", title: "Won 1st place in the Gemini track @ DubHacks 2026!" },
     { date: "June 2026 - September 2026", kind: "photo", company: "viasat", title: "Summer in San Diego ☀️ 🏖️ 🌴", gallery: viasatPhotos },
     { date: "June 2026", kind: "milestone", company: "viasat", title: "Joined Viasat", subtitle: "Full-Stack Software Engineer Intern" },
+    { date: "June 2026", kind: "milestone", company: "cass", title: "Left CASS", subtitle: "Software Engineering Student Mentor" },
     { date: "June 2026", kind: "photo", gradient: osuGradient, image: capstone, title: "Presenting our senior capstone project @ Engineering Expo!" },
-    { date: "June 2025", kind: "milestone", company: "odot", title: "Started at ODOT", subtitle: "Software Engineering Intern" },
     { date: "May 2025", kind: "milestone", company: "star", title: "Left STAR Lab", subtitle: "Applied AI Research Intern" },
     { date: "January 2025", kind: "photo", company: "cass", title: "Interning at the Center for Applied Systems and Software.", gallery: cassPhotos },
     { date: "January 2025", kind: "milestone", company: "cass", title: "Joined CASS", subtitle: "Software Engineering Intern" },
@@ -199,11 +198,11 @@ function PhotoStack({ entry, photos }: Readonly<{ entry: Entry; photos: (string 
                 className="group relative block aspect-[3/4] w-full text-left outline-none"
             >
                 {stackLayers.map((layer, i) => (
-                    <span key={layer} aria-hidden style={style} className={`absolute inset-0 overflow-hidden bg-card shadow-sm transition-transform duration-300 ${outlineClass} ${layer}`}>
+                    <span key={layer} aria-hidden style={style} className={`rounded-lg absolute inset-0 overflow-hidden bg-card shadow-sm transition-transform duration-300 ${outlineClass} ${layer}`}>
                         <Photo src={photos[i + 1]} className="opacity-80" />
                     </span>
                 ))}
-                <figure style={style} className={`relative h-full overflow-hidden bg-muted shadow-md transition-transform duration-300 group-hover:-translate-y-1 group-focus-visible:-translate-y-1 group-focus-visible:ring-2 group-focus-visible:ring-ring ${outlineClass}`}>
+                <figure style={style} className={`rounded-lg relative h-full overflow-hidden bg-muted shadow-md transition-transform duration-300 group-hover:-translate-y-1 group-focus-visible:-translate-y-1 group-focus-visible:ring-2 group-focus-visible:ring-ring ${outlineClass}`}>
                     <Photo src={photos[0]} />
                     <Logo entry={entry} className="absolute top-2 left-2 size-6 rounded-sm bg-white p-px" />
                     <span className="absolute top-2 right-2 flex items-center gap-1 bg-black/60 px-1.5 py-0.5 font-mono text-[10px] text-white">
@@ -224,7 +223,7 @@ function Card({ entry }: Readonly<{ entry: Entry }>) {
     const { className, style } = outline(entry)
     if (entry.kind === "milestone") {
         return (
-            <div style={style} className={`relative flex flex-col items-center bg-card px-4 py-6 text-center ${className}`}>
+            <div style={style} className={`rounded-lg relative flex flex-col items-center bg-card px-4 py-6 text-center ${className}`}>
                 <Logo entry={entry} className="mb-3 size-8 rounded-sm" />
                 <h3 className="text-sm font-medium">{entry.title}</h3>
                 {entry.subtitle && <p className="mt-1 text-xs text-muted-foreground">{entry.subtitle}</p>}
@@ -232,14 +231,14 @@ function Card({ entry }: Readonly<{ entry: Entry }>) {
         )
     }
     const photo = (
-        <figure style={style} className={`relative aspect-[3/4] overflow-hidden bg-muted ${className}`}>
+        <figure style={style} className={`rounded-lg relative aspect-[3/4] overflow-hidden bg-muted ${className}`}>
             <Photo src={entry.image} />
             <Logo entry={entry} className="absolute top-2 left-2 size-6 rounded-sm bg-white p-px" />
             <Caption>{entry.title}</Caption>
         </figure>
     )
     return entry.link ? (
-        <a href={entry.link} target="_blank" rel="noopener noreferrer" className="block transition-transform duration-300 hover:-translate-y-1 focus-visible:outline-2">
+        <a href={entry.link} target="_blank" rel="noopener noreferrer" className="block rounded-lg transition-transform duration-300 hover:-translate-y-1 focus-visible:outline-2">
             {photo}
         </a>
     ) : photo

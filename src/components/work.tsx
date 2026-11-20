@@ -34,8 +34,8 @@ const companies: Company[] = [
             },
             {
                 title: "Full-Stack Software Engineer (Part-Time)",
-                period: "September 2026 - December 2026",
-                description: "Continuing work on Ads Insights with the full-stack engineering team.",
+                period: "September 2026 - February 2027",
+                description: "Continuing on Ads Insights with the full-stack engineering team",
             },
             {
                 title: "Full-Stack Software Engineer Intern",
@@ -53,8 +53,8 @@ const companies: Company[] = [
         roles: [
             {
                 title: "Software Engineering Student Mentor",
-                period: "January 2027 - March 2027",
-                description: "Mentoring new student software developers at CASS.",
+                period: "May 2026 - June 2026",
+                description: "Mentoring new student software developers",
             },
             {
                 title: "Software Engineering Intern",
@@ -74,7 +74,7 @@ const companies: Company[] = [
                 title: "Software Engineering Intern",
                 period: "June 2025 - August 2025",
                 description:
-                    "Upgrading VSL platform features, refactoring Vue.js & Razor views, and writing SQL migration scripts to automate ETL pipeline workflows for TOCS maintenance.",
+                    "Upgrading VSL platform features, refactoring Vue.js & .NET Razor views, and writing SQL migration scripts to automate ETL pipeline workflows for TOCS maintenance.",
                 technologies: ["React", "TypeScript", "Vue", "C#", ".NET", "Git", "MySQL", "SQL Server", "Azure DevOps"],
             },
         ],

@@ -9,9 +9,9 @@ export function About() {
           </p>
           <p>
               currently: <br />
-                ~ b.s. in cs & minor in business @ oregon state
+                ~ b.s. in cs + minor in business @ oregon state
                 <br />
-                ~ software engineer intern @ viasat
+                ~ software engineer @ viasat
           </p>
           <p className="text-foreground">
               this website is meant to be a showcase of my work. enjoy!

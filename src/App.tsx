@@ -18,8 +18,8 @@ function App() {
         <Landing />
         <About />
         <Work />
-        <Timeline />
         <Projects />
+        <Timeline />
         <Skills />
         <Footer />
       </main>
